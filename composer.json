@@ -1,0 +1,40 @@
+{
+    "name": "nfq/kunstmaan-rest-api-php-client",
+    "version": "1.0.0",
+    "description": "Šiaulių Bankas REST API provides secure and efficient access to application data, enabling seamless data synchronization between Šiaulių Bankas and external systems.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "NFQ",
+            "homepage": "https://openapi-generator.tech"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": { "NFQ\\KunstmaanRestApi\\PhpClient\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "NFQ\\KunstmaanRestApi\\PhpClient\\Test\\" : "test/" }
+    }
+}
