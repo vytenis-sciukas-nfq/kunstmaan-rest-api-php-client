@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\NFQ;
+namespace NFQ\KunstmaanRestApi\PhpClient\RestApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;

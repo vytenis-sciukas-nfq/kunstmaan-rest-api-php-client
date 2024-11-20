@@ -1,7 +1,7 @@
 {
   "artifactId": "MyClient",
   "artifactVersion": "1.0.0",
-  "apiPackage": "NFQ",
+  "apiPackage": "RestApi",
   "composerPackageName" : "nfq/kunstmaan-rest-api-php-client",
   "invokerPackage": "NFQ\\KunstmaanRestApi\\PhpClient",
   "developerOrganization": "NFQ",

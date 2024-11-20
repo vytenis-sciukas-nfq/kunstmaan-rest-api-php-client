@@ -1,6 +1,6 @@
 <?php
 /**
- * MediaApi
+ * MenuApi
  * PHP version 7.4
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\NFQ;
+namespace NFQ\KunstmaanRestApi\PhpClient\RestApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -40,14 +40,14 @@ use NFQ\KunstmaanRestApi\PhpClient\HeaderSelector;
 use NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * MediaApi Class Doc Comment
+ * MenuApi Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MediaApi
+class MenuApi
 {
     /**
      * @var ClientInterface
@@ -71,34 +71,28 @@ class MediaApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'deleteFolder' => [
+        'addMenuItem' => [
             'application/json',
         ],
-        'deleteMedia' => [
+        'deleteMenu' => [
             'application/json',
         ],
-        'getFolder' => [
+        'deleteMenuItem' => [
             'application/json',
         ],
-        'getMedia' => [
+        'getMenuItems' => [
             'application/json',
         ],
-        'getMediaItem' => [
+        'getMenus' => [
             'application/json',
         ],
-        'moveFolder' => [
+        'postMenu' => [
             'application/json',
         ],
-        'postFolder' => [
+        'putMenu' => [
             'application/json',
         ],
-        'postMedia' => [
-            'application/json',
-        ],
-        'putFolder' => [
-            'application/json',
-        ],
-        'updateMedia' => [
+        'putMenuItem' => [
             'application/json',
         ],
     ];
@@ -150,37 +144,39 @@ class MediaApi
     }
 
     /**
-     * Operation deleteFolder
+     * Operation addMenuItem
      *
-     * deletes Folder
+     * Creates a new Menu item
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem $postMenuItem postMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteFolder($id, string $contentType = self::contentTypes['deleteFolder'][0])
+    public function addMenuItem($id, $postMenuItem = null, string $contentType = self::contentTypes['addMenuItem'][0])
     {
-        $this->deleteFolderWithHttpInfo($id, $contentType);
+        $this->addMenuItemWithHttpInfo($id, $postMenuItem, $contentType);
     }
 
     /**
-     * Operation deleteFolderWithHttpInfo
+     * Operation addMenuItemWithHttpInfo
      *
-     * deletes Folder
+     * Creates a new Menu item
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem $postMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFolderWithHttpInfo($id, string $contentType = self::contentTypes['deleteFolder'][0])
+    public function addMenuItemWithHttpInfo($id, $postMenuItem = null, string $contentType = self::contentTypes['addMenuItem'][0])
     {
-        $request = $this->deleteFolderRequest($id, $contentType);
+        $request = $this->addMenuItemRequest($id, $postMenuItem, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -231,19 +227,20 @@ class MediaApi
     }
 
     /**
-     * Operation deleteFolderAsync
+     * Operation addMenuItemAsync
      *
-     * deletes Folder
+     * Creates a new Menu item
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem $postMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFolderAsync($id, string $contentType = self::contentTypes['deleteFolder'][0])
+    public function addMenuItemAsync($id, $postMenuItem = null, string $contentType = self::contentTypes['addMenuItem'][0])
     {
-        return $this->deleteFolderAsyncWithHttpInfo($id, $contentType)
+        return $this->addMenuItemAsyncWithHttpInfo($id, $postMenuItem, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -252,20 +249,21 @@ class MediaApi
     }
 
     /**
-     * Operation deleteFolderAsyncWithHttpInfo
+     * Operation addMenuItemAsyncWithHttpInfo
      *
-     * deletes Folder
+     * Creates a new Menu item
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem $postMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFolderAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteFolder'][0])
+    public function addMenuItemAsyncWithHttpInfo($id, $postMenuItem = null, string $contentType = self::contentTypes['addMenuItem'][0])
     {
         $returnType = '';
-        $request = $this->deleteFolderRequest($id, $contentType);
+        $request = $this->addMenuItemRequest($id, $postMenuItem, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -291,29 +289,276 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'deleteFolder'
+     * Create request for operation 'addMenuItem'
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem $postMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFolderRequest($id, string $contentType = self::contentTypes['deleteFolder'][0])
+    public function addMenuItemRequest($id, $postMenuItem = null, string $contentType = self::contentTypes['addMenuItem'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteFolder'
+                'Missing the required parameter $id when calling addMenuItem'
+            );
+        }
+
+
+
+        $resourcePath = '/api/menu/{id}/add';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($postMenuItem)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postMenuItem));
+            } else {
+                $httpBody = $postMenuItem;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteMenu
+     *
+     * deletes Menu
+     *
+     * @param  string $id The id of the menu (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenu'] to see the possible values for this operation
+     *
+     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteMenu($id, string $contentType = self::contentTypes['deleteMenu'][0])
+    {
+        $this->deleteMenuWithHttpInfo($id, $contentType);
+    }
+
+    /**
+     * Operation deleteMenuWithHttpInfo
+     *
+     * deletes Menu
+     *
+     * @param  string $id The id of the menu (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenu'] to see the possible values for this operation
+     *
+     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteMenuWithHttpInfo($id, string $contentType = self::contentTypes['deleteMenu'][0])
+    {
+        $request = $this->deleteMenuRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteMenuAsync
+     *
+     * deletes Menu
+     *
+     * @param  string $id The id of the menu (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenu'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteMenuAsync($id, string $contentType = self::contentTypes['deleteMenu'][0])
+    {
+        return $this->deleteMenuAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteMenuAsyncWithHttpInfo
+     *
+     * deletes Menu
+     *
+     * @param  string $id The id of the menu (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenu'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteMenuAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteMenu'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteMenuRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteMenu'
+     *
+     * @param  string $id The id of the menu (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenu'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteMenuRequest($id, string $contentType = self::contentTypes['deleteMenu'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteMenu'
             );
         }
         if (!preg_match("/\\d+/", $id)) {
-            throw new \InvalidArgumentException("invalid value for \"id\" when calling MediaApi.deleteFolder, must conform to the pattern /\\d+/.");
+            throw new \InvalidArgumentException("invalid value for \"id\" when calling MenuApi.deleteMenu, must conform to the pattern /\\d+/.");
         }
         
 
-        $resourcePath = '/api/folder/{id}';
+        $resourcePath = '/api/menu/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -391,37 +636,37 @@ class MediaApi
     }
 
     /**
-     * Operation deleteMedia
+     * Operation deleteMenuItem
      *
-     * deletes Media
+     * deletes MenuItem
      *
-     * @param  string $id The id of the media (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu item (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteMedia($id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMenuItem($id, string $contentType = self::contentTypes['deleteMenuItem'][0])
     {
-        $this->deleteMediaWithHttpInfo($id, $contentType);
+        $this->deleteMenuItemWithHttpInfo($id, $contentType);
     }
 
     /**
-     * Operation deleteMediaWithHttpInfo
+     * Operation deleteMenuItemWithHttpInfo
      *
-     * deletes Media
+     * deletes MenuItem
      *
-     * @param  string $id The id of the media (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu item (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMediaWithHttpInfo($id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMenuItemWithHttpInfo($id, string $contentType = self::contentTypes['deleteMenuItem'][0])
     {
-        $request = $this->deleteMediaRequest($id, $contentType);
+        $request = $this->deleteMenuItemRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -472,19 +717,19 @@ class MediaApi
     }
 
     /**
-     * Operation deleteMediaAsync
+     * Operation deleteMenuItemAsync
      *
-     * deletes Media
+     * deletes MenuItem
      *
-     * @param  string $id The id of the media (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu item (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMediaAsync($id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMenuItemAsync($id, string $contentType = self::contentTypes['deleteMenuItem'][0])
     {
-        return $this->deleteMediaAsyncWithHttpInfo($id, $contentType)
+        return $this->deleteMenuItemAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -493,20 +738,20 @@ class MediaApi
     }
 
     /**
-     * Operation deleteMediaAsyncWithHttpInfo
+     * Operation deleteMenuItemAsyncWithHttpInfo
      *
-     * deletes Media
+     * deletes MenuItem
      *
-     * @param  string $id The id of the media (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu item (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMediaAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMenuItemAsyncWithHttpInfo($id, string $contentType = self::contentTypes['deleteMenuItem'][0])
     {
         $returnType = '';
-        $request = $this->deleteMediaRequest($id, $contentType);
+        $request = $this->deleteMenuItemRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -532,29 +777,29 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'deleteMedia'
+     * Create request for operation 'deleteMenuItem'
      *
-     * @param  string $id The id of the media (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu item (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMediaRequest($id, string $contentType = self::contentTypes['deleteMedia'][0])
+    public function deleteMenuItemRequest($id, string $contentType = self::contentTypes['deleteMenuItem'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteMedia'
+                'Missing the required parameter $id when calling deleteMenuItem'
             );
         }
         if (!preg_match("/\\d+/", $id)) {
-            throw new \InvalidArgumentException("invalid value for \"id\" when calling MediaApi.deleteMedia, must conform to the pattern /\\d+/.");
+            throw new \InvalidArgumentException("invalid value for \"id\" when calling MenuApi.deleteMenuItem, must conform to the pattern /\\d+/.");
         }
         
 
-        $resourcePath = '/api/media/{id}';
+        $resourcePath = '/api/menu-item/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -632,42 +877,42 @@ class MediaApi
     }
 
     /**
-     * Operation getFolder
+     * Operation getMenuItems
      *
-     * Retrieve folders paginated
+     * Retrieve menu items paginated
      *
+     * @param  string $id The id of the menu (required)
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the folder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFolder'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItems'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function getFolder($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
+    public function getMenuItems($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
-        list($response) = $this->getFolderWithHttpInfo($page, $limit, $name, $contentType);
+        list($response) = $this->getMenuItemsWithHttpInfo($id, $page, $limit, $contentType);
         return $response;
     }
 
     /**
-     * Operation getFolderWithHttpInfo
+     * Operation getMenuItemsWithHttpInfo
      *
-     * Retrieve folders paginated
+     * Retrieve menu items paginated
      *
+     * @param  string $id The id of the menu (required)
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the folder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFolder'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItems'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFolderWithHttpInfo($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
+    public function getMenuItemsWithHttpInfo($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
-        $request = $this->getFolderRequest($page, $limit, $name, $contentType);
+        $request = $this->getMenuItemsRequest($id, $page, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -694,11 +939,11 @@ class MediaApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -716,7 +961,7 @@ class MediaApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -789,7 +1034,7 @@ class MediaApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -822,7 +1067,7 @@ class MediaApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -849,21 +1094,21 @@ class MediaApi
     }
 
     /**
-     * Operation getFolderAsync
+     * Operation getMenuItemsAsync
      *
-     * Retrieve folders paginated
+     * Retrieve menu items paginated
      *
+     * @param  string $id The id of the menu (required)
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the folder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFolder'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFolderAsync($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
+    public function getMenuItemsAsync($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
-        return $this->getFolderAsyncWithHttpInfo($page, $limit, $name, $contentType)
+        return $this->getMenuItemsAsyncWithHttpInfo($id, $page, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -872,22 +1117,22 @@ class MediaApi
     }
 
     /**
-     * Operation getFolderAsyncWithHttpInfo
+     * Operation getMenuItemsAsyncWithHttpInfo
      *
-     * Retrieve folders paginated
+     * Retrieve menu items paginated
      *
+     * @param  string $id The id of the menu (required)
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the folder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFolder'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFolderAsyncWithHttpInfo($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
+    public function getMenuItemsAsyncWithHttpInfo($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList';
-        $request = $this->getFolderRequest($page, $limit, $name, $contentType);
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList';
+        $request = $this->getMenuItemsRequest($id, $page, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -926,876 +1171,60 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'getFolder'
+     * Create request for operation 'getMenuItems'
      *
+     * @param  string $id The id of the menu (required)
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the folder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFolder'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFolderRequest($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
-    {
-
-        if ($page !== null && !preg_match("/\\d+/", $page)) {
-            throw new \InvalidArgumentException("invalid value for \"page\" when calling MediaApi.getFolder, must conform to the pattern /\\d+/.");
-        }
-        
-        if ($limit !== null && !preg_match("/\\d+/", $limit)) {
-            throw new \InvalidArgumentException("invalid value for \"limit\" when calling MediaApi.getFolder, must conform to the pattern /\\d+/.");
-        }
-        
-        if ($name !== null && !preg_match("/[\\w\\d_-]+/", $name)) {
-            throw new \InvalidArgumentException("invalid value for \"name\" when calling MediaApi.getFolder, must conform to the pattern /[\\w\\d_-]+/.");
-        }
-        
-
-        $resourcePath = '/api/folder';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $limit,
-            'limit', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $name,
-            'name', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMedia
-     *
-     * Retrieve media paginated
-     *
-     * @param  string $page The current page (optional, default to '1')
-     * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the media (optional)
-     * @param  string $folderId The id of the folder to limit the search to (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
-     */
-    public function getMedia($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
-    {
-        list($response) = $this->getMediaWithHttpInfo($page, $limit, $name, $folderId, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getMediaWithHttpInfo
-     *
-     * Retrieve media paginated
-     *
-     * @param  string $page The current page (optional, default to '1')
-     * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the media (optional)
-     * @param  string $folderId The id of the folder to limit the search to (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMediaWithHttpInfo($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
-    {
-        $request = $this->getMediaRequest($page, $limit, $name, $folderId, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                default:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getMediaAsync
-     *
-     * Retrieve media paginated
-     *
-     * @param  string $page The current page (optional, default to '1')
-     * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the media (optional)
-     * @param  string $folderId The id of the folder to limit the search to (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMediaAsync($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
-    {
-        return $this->getMediaAsyncWithHttpInfo($page, $limit, $name, $folderId, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMediaAsyncWithHttpInfo
-     *
-     * Retrieve media paginated
-     *
-     * @param  string $page The current page (optional, default to '1')
-     * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the media (optional)
-     * @param  string $folderId The id of the folder to limit the search to (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMediaAsyncWithHttpInfo($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
-    {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList';
-        $request = $this->getMediaRequest($page, $limit, $name, $folderId, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMedia'
-     *
-     * @param  string $page The current page (optional, default to '1')
-     * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $name The name of the media (optional)
-     * @param  string $folderId The id of the folder to limit the search to (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMedia'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getMediaRequest($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
-    {
-
-        if ($page !== null && !preg_match("/\\d+/", $page)) {
-            throw new \InvalidArgumentException("invalid value for \"page\" when calling MediaApi.getMedia, must conform to the pattern /\\d+/.");
-        }
-        
-        if ($limit !== null && !preg_match("/\\d+/", $limit)) {
-            throw new \InvalidArgumentException("invalid value for \"limit\" when calling MediaApi.getMedia, must conform to the pattern /\\d+/.");
-        }
-        
-        if ($name !== null && !preg_match("/[\\w\\d_-]+/", $name)) {
-            throw new \InvalidArgumentException("invalid value for \"name\" when calling MediaApi.getMedia, must conform to the pattern /[\\w\\d_-]+/.");
-        }
-        
-        if ($folderId !== null && !preg_match("/\\d+/", $folderId)) {
-            throw new \InvalidArgumentException("invalid value for \"folderId\" when calling MediaApi.getMedia, must conform to the pattern /\\d+/.");
-        }
-        
-
-        $resourcePath = '/api/media';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $limit,
-            'limit', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $name,
-            'name', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $folderId,
-            'folderId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMediaItem
-     *
-     * Retrieve a single media
-     *
-     * @param  string $id The media ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMediaItem'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\Media|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
-     */
-    public function getMediaItem($id, string $contentType = self::contentTypes['getMediaItem'][0])
-    {
-        list($response) = $this->getMediaItemWithHttpInfo($id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getMediaItemWithHttpInfo
-     *
-     * Retrieve a single media
-     *
-     * @param  string $id The media ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMediaItem'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\Media|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMediaItemWithHttpInfo($id, string $contentType = self::contentTypes['getMediaItem'][0])
-    {
-        $request = $this->getMediaItemRequest($id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\Media' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\Media' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\Media', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                default:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\Media';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\Media',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getMediaItemAsync
-     *
-     * Retrieve a single media
-     *
-     * @param  string $id The media ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMediaItem'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMediaItemAsync($id, string $contentType = self::contentTypes['getMediaItem'][0])
-    {
-        return $this->getMediaItemAsyncWithHttpInfo($id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMediaItemAsyncWithHttpInfo
-     *
-     * Retrieve a single media
-     *
-     * @param  string $id The media ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMediaItem'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMediaItemAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getMediaItem'][0])
-    {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\Media';
-        $request = $this->getMediaItemRequest($id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMediaItem'
-     *
-     * @param  string $id The media ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMediaItem'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getMediaItemRequest($id, string $contentType = self::contentTypes['getMediaItem'][0])
+    public function getMenuItemsRequest($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getMediaItem'
+                'Missing the required parameter $id when calling getMenuItems'
             );
         }
 
+        if ($page !== null && !preg_match("/\\d+/", $page)) {
+            throw new \InvalidArgumentException("invalid value for \"page\" when calling MenuApi.getMenuItems, must conform to the pattern /\\d+/.");
+        }
+        
+        if ($limit !== null && !preg_match("/\\d+/", $limit)) {
+            throw new \InvalidArgumentException("invalid value for \"limit\" when calling MenuApi.getMenuItems, must conform to the pattern /\\d+/.");
+        }
+        
 
-        $resourcePath = '/api/media/{id}';
+        $resourcePath = '/api/menu/{id}/items';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1867,39 +1296,40 @@ class MediaApi
     }
 
     /**
-     * Operation moveFolder
+     * Operation getMenus
      *
-     * move Folder
+     * Retrieve menu paginated
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $targetId The id of the target folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['moveFolder'] to see the possible values for this operation
+     * @param  string $page The current page (optional, default to '1')
+     * @param  string $limit Amount of results (default 20) (optional, default to '20')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenus'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function moveFolder($id, $targetId, string $contentType = self::contentTypes['moveFolder'][0])
+    public function getMenus($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
-        $this->moveFolderWithHttpInfo($id, $targetId, $contentType);
+        list($response) = $this->getMenusWithHttpInfo($page, $limit, $contentType);
+        return $response;
     }
 
     /**
-     * Operation moveFolderWithHttpInfo
+     * Operation getMenusWithHttpInfo
      *
-     * move Folder
+     * Retrieve menu paginated
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $targetId The id of the target folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['moveFolder'] to see the possible values for this operation
+     * @param  string $page The current page (optional, default to '1')
+     * @param  string $limit Amount of results (default 20) (optional, default to '20')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenus'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function moveFolderWithHttpInfo($id, $targetId, string $contentType = self::contentTypes['moveFolder'][0])
+    public function getMenusWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
-        $request = $this->moveFolderRequest($id, $targetId, $contentType);
+        $request = $this->getMenusRequest($page, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1924,10 +1354,141 @@ class MediaApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1950,20 +1511,20 @@ class MediaApi
     }
 
     /**
-     * Operation moveFolderAsync
+     * Operation getMenusAsync
      *
-     * move Folder
+     * Retrieve menu paginated
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $targetId The id of the target folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['moveFolder'] to see the possible values for this operation
+     * @param  string $page The current page (optional, default to '1')
+     * @param  string $limit Amount of results (default 20) (optional, default to '20')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function moveFolderAsync($id, $targetId, string $contentType = self::contentTypes['moveFolder'][0])
+    public function getMenusAsync($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
-        return $this->moveFolderAsyncWithHttpInfo($id, $targetId, $contentType)
+        return $this->getMenusAsyncWithHttpInfo($page, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1972,27 +1533,40 @@ class MediaApi
     }
 
     /**
-     * Operation moveFolderAsyncWithHttpInfo
+     * Operation getMenusAsyncWithHttpInfo
      *
-     * move Folder
+     * Retrieve menu paginated
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $targetId The id of the target folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['moveFolder'] to see the possible values for this operation
+     * @param  string $page The current page (optional, default to '1')
+     * @param  string $limit Amount of results (default 20) (optional, default to '20')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function moveFolderAsyncWithHttpInfo($id, $targetId, string $contentType = self::contentTypes['moveFolder'][0])
+    public function getMenusAsyncWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
-        $returnType = '';
-        $request = $this->moveFolderRequest($id, $targetId, $contentType);
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList';
+        $request = $this->getMenusRequest($page, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2012,64 +1586,54 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'moveFolder'
+     * Create request for operation 'getMenus'
      *
-     * @param  string $id The id of the folder (required)
-     * @param  string $targetId The id of the target folder (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['moveFolder'] to see the possible values for this operation
+     * @param  string $page The current page (optional, default to '1')
+     * @param  string $limit Amount of results (default 20) (optional, default to '20')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function moveFolderRequest($id, $targetId, string $contentType = self::contentTypes['moveFolder'][0])
+    public function getMenusRequest($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling moveFolder'
-            );
-        }
-        if (!preg_match("/\\d+/", $id)) {
-            throw new \InvalidArgumentException("invalid value for \"id\" when calling MediaApi.moveFolder, must conform to the pattern /\\d+/.");
+        if ($page !== null && !preg_match("/\\d+/", $page)) {
+            throw new \InvalidArgumentException("invalid value for \"page\" when calling MenuApi.getMenus, must conform to the pattern /\\d+/.");
         }
         
-        // verify the required parameter 'targetId' is set
-        if ($targetId === null || (is_array($targetId) && count($targetId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $targetId when calling moveFolder'
-            );
-        }
-        if (!preg_match("/\\d+/", $targetId)) {
-            throw new \InvalidArgumentException("invalid value for \"targetId\" when calling MediaApi.moveFolder, must conform to the pattern /\\d+/.");
+        if ($limit !== null && !preg_match("/\\d+/", $limit)) {
+            throw new \InvalidArgumentException("invalid value for \"limit\" when calling MenuApi.getMenus, must conform to the pattern /\\d+/.");
         }
         
 
-        $resourcePath = '/api/folder/{id}/{targetId}';
+        $resourcePath = '/api/menu';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($targetId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'targetId' . '}',
-                ObjectSerializer::toPathValue($targetId),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2123,7 +1687,7 @@ class MediaApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PUT',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2131,39 +1695,37 @@ class MediaApi
     }
 
     /**
-     * Operation postFolder
+     * Operation postMenu
      *
-     * Creates a new Folder
+     * Creates a new Menu
      *
-     * @param  string $parentId The ID of the folder parent (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postFolder'] to see the possible values for this operation
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMenu'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function postFolder($parentId, $postFolder = null, string $contentType = self::contentTypes['postFolder'][0])
+    public function postMenu($postMenu = null, string $contentType = self::contentTypes['postMenu'][0])
     {
-        $this->postFolderWithHttpInfo($parentId, $postFolder, $contentType);
+        $this->postMenuWithHttpInfo($postMenu, $contentType);
     }
 
     /**
-     * Operation postFolderWithHttpInfo
+     * Operation postMenuWithHttpInfo
      *
-     * Creates a new Folder
+     * Creates a new Menu
      *
-     * @param  string $parentId The ID of the folder parent (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postFolder'] to see the possible values for this operation
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMenu'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postFolderWithHttpInfo($parentId, $postFolder = null, string $contentType = self::contentTypes['postFolder'][0])
+    public function postMenuWithHttpInfo($postMenu = null, string $contentType = self::contentTypes['postMenu'][0])
     {
-        $request = $this->postFolderRequest($parentId, $postFolder, $contentType);
+        $request = $this->postMenuRequest($postMenu, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2214,20 +1776,19 @@ class MediaApi
     }
 
     /**
-     * Operation postFolderAsync
+     * Operation postMenuAsync
      *
-     * Creates a new Folder
+     * Creates a new Menu
      *
-     * @param  string $parentId The ID of the folder parent (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postFolder'] to see the possible values for this operation
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postFolderAsync($parentId, $postFolder = null, string $contentType = self::contentTypes['postFolder'][0])
+    public function postMenuAsync($postMenu = null, string $contentType = self::contentTypes['postMenu'][0])
     {
-        return $this->postFolderAsyncWithHttpInfo($parentId, $postFolder, $contentType)
+        return $this->postMenuAsyncWithHttpInfo($postMenu, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2236,21 +1797,20 @@ class MediaApi
     }
 
     /**
-     * Operation postFolderAsyncWithHttpInfo
+     * Operation postMenuAsyncWithHttpInfo
      *
-     * Creates a new Folder
+     * Creates a new Menu
      *
-     * @param  string $parentId The ID of the folder parent (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postFolder'] to see the possible values for this operation
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postFolderAsyncWithHttpInfo($parentId, $postFolder = null, string $contentType = self::contentTypes['postFolder'][0])
+    public function postMenuAsyncWithHttpInfo($postMenu = null, string $contentType = self::contentTypes['postMenu'][0])
     {
         $returnType = '';
-        $request = $this->postFolderRequest($parentId, $postFolder, $contentType);
+        $request = $this->postMenuRequest($postMenu, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2276,31 +1836,20 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'postFolder'
+     * Create request for operation 'postMenu'
      *
-     * @param  string $parentId The ID of the folder parent (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postFolder'] to see the possible values for this operation
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function postFolderRequest($parentId, $postFolder = null, string $contentType = self::contentTypes['postFolder'][0])
+    public function postMenuRequest($postMenu = null, string $contentType = self::contentTypes['postMenu'][0])
     {
 
-        // verify the required parameter 'parentId' is set
-        if ($parentId === null || (is_array($parentId) && count($parentId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $parentId when calling postFolder'
-            );
-        }
-        if (!preg_match("/\\d+/", $parentId)) {
-            throw new \InvalidArgumentException("invalid value for \"parentId\" when calling MediaApi.postFolder, must conform to the pattern /\\d+/.");
-        }
-        
 
 
-        $resourcePath = '/api/folder/{parentId}';
+        $resourcePath = '/api/menu';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2309,14 +1858,6 @@ class MediaApi
 
 
 
-        // path params
-        if ($parentId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'parentId' . '}',
-                ObjectSerializer::toPathValue($parentId),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2326,12 +1867,12 @@ class MediaApi
         );
 
         // for model (json/xml)
-        if (isset($postFolder)) {
+        if (isset($postMenu)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postFolder));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postMenu));
             } else {
-                $httpBody = $postFolder;
+                $httpBody = $postMenu;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2385,37 +1926,39 @@ class MediaApi
     }
 
     /**
-     * Operation postMedia
+     * Operation putMenu
      *
-     * Creates a new Media
+     * Update a menu
      *
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia $uploadMedia uploadMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenu'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function postMedia($uploadMedia = null, string $contentType = self::contentTypes['postMedia'][0])
+    public function putMenu($id, $postMenu = null, string $contentType = self::contentTypes['putMenu'][0])
     {
-        $this->postMediaWithHttpInfo($uploadMedia, $contentType);
+        $this->putMenuWithHttpInfo($id, $postMenu, $contentType);
     }
 
     /**
-     * Operation postMediaWithHttpInfo
+     * Operation putMenuWithHttpInfo
      *
-     * Creates a new Media
+     * Update a menu
      *
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia $uploadMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenu'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postMediaWithHttpInfo($uploadMedia = null, string $contentType = self::contentTypes['postMedia'][0])
+    public function putMenuWithHttpInfo($id, $postMenu = null, string $contentType = self::contentTypes['putMenu'][0])
     {
-        $request = $this->postMediaRequest($uploadMedia, $contentType);
+        $request = $this->putMenuRequest($id, $postMenu, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2466,19 +2009,20 @@ class MediaApi
     }
 
     /**
-     * Operation postMediaAsync
+     * Operation putMenuAsync
      *
-     * Creates a new Media
+     * Update a menu
      *
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia $uploadMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postMediaAsync($uploadMedia = null, string $contentType = self::contentTypes['postMedia'][0])
+    public function putMenuAsync($id, $postMenu = null, string $contentType = self::contentTypes['putMenu'][0])
     {
-        return $this->postMediaAsyncWithHttpInfo($uploadMedia, $contentType)
+        return $this->putMenuAsyncWithHttpInfo($id, $postMenu, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2487,20 +2031,21 @@ class MediaApi
     }
 
     /**
-     * Operation postMediaAsyncWithHttpInfo
+     * Operation putMenuAsyncWithHttpInfo
      *
-     * Creates a new Media
+     * Update a menu
      *
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia $uploadMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postMediaAsyncWithHttpInfo($uploadMedia = null, string $contentType = self::contentTypes['postMedia'][0])
+    public function putMenuAsyncWithHttpInfo($id, $postMenu = null, string $contentType = self::contentTypes['putMenu'][0])
     {
         $returnType = '';
-        $request = $this->postMediaRequest($uploadMedia, $contentType);
+        $request = $this->putMenuRequest($id, $postMenu, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2526,266 +2071,28 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'postMedia'
+     * Create request for operation 'putMenu'
      *
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia $uploadMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postMedia'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function postMediaRequest($uploadMedia = null, string $contentType = self::contentTypes['postMedia'][0])
-    {
-
-
-
-        $resourcePath = '/api/media';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($uploadMedia)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($uploadMedia));
-            } else {
-                $httpBody = $uploadMedia;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation putFolder
-     *
-     * updates Folder
-     *
-     * @param  string $id The id of the folder (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFolder'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function putFolder($id, $postFolder = null, string $contentType = self::contentTypes['putFolder'][0])
-    {
-        $this->putFolderWithHttpInfo($id, $postFolder, $contentType);
-    }
-
-    /**
-     * Operation putFolderWithHttpInfo
-     *
-     * updates Folder
-     *
-     * @param  string $id The id of the folder (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFolder'] to see the possible values for this operation
-     *
-     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function putFolderWithHttpInfo($id, $postFolder = null, string $contentType = self::contentTypes['putFolder'][0])
-    {
-        $request = $this->putFolderRequest($id, $postFolder, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation putFolderAsync
-     *
-     * updates Folder
-     *
-     * @param  string $id The id of the folder (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFolder'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putFolderAsync($id, $postFolder = null, string $contentType = self::contentTypes['putFolder'][0])
-    {
-        return $this->putFolderAsyncWithHttpInfo($id, $postFolder, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation putFolderAsyncWithHttpInfo
-     *
-     * updates Folder
-     *
-     * @param  string $id The id of the folder (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFolder'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putFolderAsyncWithHttpInfo($id, $postFolder = null, string $contentType = self::contentTypes['putFolder'][0])
-    {
-        $returnType = '';
-        $request = $this->putFolderRequest($id, $postFolder, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'putFolder'
-     *
-     * @param  string $id The id of the folder (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder $postFolder (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFolder'] to see the possible values for this operation
+     * @param  string $id The id of the menu (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu $postMenu (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenu'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putFolderRequest($id, $postFolder = null, string $contentType = self::contentTypes['putFolder'][0])
+    public function putMenuRequest($id, $postMenu = null, string $contentType = self::contentTypes['putMenu'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling putFolder'
+                'Missing the required parameter $id when calling putMenu'
             );
         }
-        if (!preg_match("/\\d+/", $id)) {
-            throw new \InvalidArgumentException("invalid value for \"id\" when calling MediaApi.putFolder, must conform to the pattern /\\d+/.");
-        }
-        
 
 
-        $resourcePath = '/api/folder/{id}';
+
+        $resourcePath = '/api/menu/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2811,12 +2118,12 @@ class MediaApi
         );
 
         // for model (json/xml)
-        if (isset($postFolder)) {
+        if (isset($postMenu)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postFolder));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postMenu));
             } else {
-                $httpBody = $postFolder;
+                $httpBody = $postMenu;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2870,39 +2177,39 @@ class MediaApi
     }
 
     /**
-     * Operation updateMedia
+     * Operation putMenuItem
      *
-     * updates a Media
+     * Update a menuItem
      *
-     * @param  string $id id (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia $putMedia putMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menuItem (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem $putMenuItem putMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateMedia($id, $putMedia = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function putMenuItem($id, $putMenuItem = null, string $contentType = self::contentTypes['putMenuItem'][0])
     {
-        $this->updateMediaWithHttpInfo($id, $putMedia, $contentType);
+        $this->putMenuItemWithHttpInfo($id, $putMenuItem, $contentType);
     }
 
     /**
-     * Operation updateMediaWithHttpInfo
+     * Operation putMenuItemWithHttpInfo
      *
-     * updates a Media
+     * Update a menuItem
      *
-     * @param  string $id (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia $putMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menuItem (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem $putMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenuItem'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMediaWithHttpInfo($id, $putMedia = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function putMenuItemWithHttpInfo($id, $putMenuItem = null, string $contentType = self::contentTypes['putMenuItem'][0])
     {
-        $request = $this->updateMediaRequest($id, $putMedia, $contentType);
+        $request = $this->putMenuItemRequest($id, $putMenuItem, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2953,20 +2260,20 @@ class MediaApi
     }
 
     /**
-     * Operation updateMediaAsync
+     * Operation putMenuItemAsync
      *
-     * updates a Media
+     * Update a menuItem
      *
-     * @param  string $id (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia $putMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menuItem (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem $putMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMediaAsync($id, $putMedia = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function putMenuItemAsync($id, $putMenuItem = null, string $contentType = self::contentTypes['putMenuItem'][0])
     {
-        return $this->updateMediaAsyncWithHttpInfo($id, $putMedia, $contentType)
+        return $this->putMenuItemAsyncWithHttpInfo($id, $putMenuItem, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2975,21 +2282,21 @@ class MediaApi
     }
 
     /**
-     * Operation updateMediaAsyncWithHttpInfo
+     * Operation putMenuItemAsyncWithHttpInfo
      *
-     * updates a Media
+     * Update a menuItem
      *
-     * @param  string $id (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia $putMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menuItem (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem $putMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMediaAsyncWithHttpInfo($id, $putMedia = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function putMenuItemAsyncWithHttpInfo($id, $putMenuItem = null, string $contentType = self::contentTypes['putMenuItem'][0])
     {
         $returnType = '';
-        $request = $this->updateMediaRequest($id, $putMedia, $contentType);
+        $request = $this->putMenuItemRequest($id, $putMenuItem, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3015,31 +2322,28 @@ class MediaApi
     }
 
     /**
-     * Create request for operation 'updateMedia'
+     * Create request for operation 'putMenuItem'
      *
-     * @param  string $id (required)
-     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia $putMedia (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMedia'] to see the possible values for this operation
+     * @param  string $id The id of the menuItem (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem $putMenuItem (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putMenuItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMediaRequest($id, $putMedia = null, string $contentType = self::contentTypes['updateMedia'][0])
+    public function putMenuItemRequest($id, $putMenuItem = null, string $contentType = self::contentTypes['putMenuItem'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateMedia'
+                'Missing the required parameter $id when calling putMenuItem'
             );
         }
-        if (!preg_match("/\\d+/", $id)) {
-            throw new \InvalidArgumentException("invalid value for \"id\" when calling MediaApi.updateMedia, must conform to the pattern /\\d+/.");
-        }
-        
 
 
-        $resourcePath = '/api/media/{id}';
+
+        $resourcePath = '/api/menu-item/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3065,12 +2369,12 @@ class MediaApi
         );
 
         // for model (json/xml)
-        if (isset($putMedia)) {
+        if (isset($putMenuItem)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($putMedia));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($putMenuItem));
             } else {
-                $httpBody = $putMedia;
+                $httpBody = $putMenuItem;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

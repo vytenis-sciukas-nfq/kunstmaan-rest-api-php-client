@@ -1,6 +1,6 @@
 <?php
 /**
- * FormSubmissionApi
+ * RedirectApi
  * PHP version 7.4
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\NFQ;
+namespace NFQ\KunstmaanRestApi\PhpClient\RestApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -40,14 +40,14 @@ use NFQ\KunstmaanRestApi\PhpClient\HeaderSelector;
 use NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * FormSubmissionApi Class Doc Comment
+ * RedirectApi Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FormSubmissionApi
+class RedirectApi
 {
     /**
      * @var ClientInterface
@@ -71,7 +71,7 @@ class FormSubmissionApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getFormSubmissions' => [
+        'getRedirects' => [
             'application/json',
         ],
     ];
@@ -123,40 +123,40 @@ class FormSubmissionApi
     }
 
     /**
-     * Operation getFormSubmissions
+     * Operation getRedirects
      *
      * Retrieve form submissions paginated
      *
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormSubmissions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRedirects'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function getFormSubmissions($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
+    public function getRedirects($page = '1', $limit = '20', string $contentType = self::contentTypes['getRedirects'][0])
     {
-        list($response) = $this->getFormSubmissionsWithHttpInfo($page, $limit, $contentType);
+        list($response) = $this->getRedirectsWithHttpInfo($page, $limit, $contentType);
         return $response;
     }
 
     /**
-     * Operation getFormSubmissionsWithHttpInfo
+     * Operation getRedirectsWithHttpInfo
      *
      * Retrieve form submissions paginated
      *
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormSubmissions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRedirects'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormSubmissionsWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
+    public function getRedirectsWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getRedirects'][0])
     {
-        $request = $this->getFormSubmissionsRequest($page, $limit, $contentType);
+        $request = $this->getRedirectsRequest($page, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -183,11 +183,11 @@ class FormSubmissionApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -205,7 +205,7 @@ class FormSubmissionApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -278,7 +278,7 @@ class FormSubmissionApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -311,7 +311,7 @@ class FormSubmissionApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -338,20 +338,20 @@ class FormSubmissionApi
     }
 
     /**
-     * Operation getFormSubmissionsAsync
+     * Operation getRedirectsAsync
      *
      * Retrieve form submissions paginated
      *
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormSubmissions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRedirects'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormSubmissionsAsync($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
+    public function getRedirectsAsync($page = '1', $limit = '20', string $contentType = self::contentTypes['getRedirects'][0])
     {
-        return $this->getFormSubmissionsAsyncWithHttpInfo($page, $limit, $contentType)
+        return $this->getRedirectsAsyncWithHttpInfo($page, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -360,21 +360,21 @@ class FormSubmissionApi
     }
 
     /**
-     * Operation getFormSubmissionsAsyncWithHttpInfo
+     * Operation getRedirectsAsyncWithHttpInfo
      *
      * Retrieve form submissions paginated
      *
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormSubmissions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRedirects'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormSubmissionsAsyncWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
+    public function getRedirectsAsyncWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getRedirects'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList';
-        $request = $this->getFormSubmissionsRequest($page, $limit, $contentType);
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect';
+        $request = $this->getRedirectsRequest($page, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -413,28 +413,28 @@ class FormSubmissionApi
     }
 
     /**
-     * Create request for operation 'getFormSubmissions'
+     * Create request for operation 'getRedirects'
      *
      * @param  string $page The current page (optional, default to '1')
      * @param  string $limit Amount of results (default 20) (optional, default to '20')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormSubmissions'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRedirects'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFormSubmissionsRequest($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
+    public function getRedirectsRequest($page = '1', $limit = '20', string $contentType = self::contentTypes['getRedirects'][0])
     {
 
         if ($page !== null && !preg_match("/\\d+/", $page)) {
-            throw new \InvalidArgumentException("invalid value for \"page\" when calling FormSubmissionApi.getFormSubmissions, must conform to the pattern /\\d+/.");
+            throw new \InvalidArgumentException("invalid value for \"page\" when calling RedirectApi.getRedirects, must conform to the pattern /\\d+/.");
         }
         
         if ($limit !== null && !preg_match("/\\d+/", $limit)) {
-            throw new \InvalidArgumentException("invalid value for \"limit\" when calling FormSubmissionApi.getFormSubmissions, must conform to the pattern /\\d+/.");
+            throw new \InvalidArgumentException("invalid value for \"limit\" when calling RedirectApi.getRedirects, must conform to the pattern /\\d+/.");
         }
         
 
-        $resourcePath = '/api/form-submission';
+        $resourcePath = '/api/redirects';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
