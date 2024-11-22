@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional]
 **name** | **string** |  | [optional]
-**internal_name** | **string** |  | [optional]
+**internalName** | **string** |  | [optional]
 **rel** | **string** |  | [optional]
-**parent_id** | **int** |  | [optional]
+**parentId** | **int** |  | [optional]
 **lft** | **int** |  | [optional]
 **rgt** | **int** |  | [optional]
 **lvl** | **int** |  | [optional]

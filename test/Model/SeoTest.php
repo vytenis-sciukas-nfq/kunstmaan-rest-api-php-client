@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Seo
- * @package     OpenAPI\Client
+ * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,7 +80,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "meta_title"
+     * Test attribute "metaTitle"
      */
     public function testPropertyMetaTitle()
     {
@@ -89,7 +89,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "meta_description"
+     * Test attribute "metaDescription"
      */
     public function testPropertyMetaDescription()
     {
@@ -98,7 +98,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "meta_author"
+     * Test attribute "metaAuthor"
      */
     public function testPropertyMetaAuthor()
     {
@@ -107,7 +107,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "meta_robots"
+     * Test attribute "metaRobots"
      */
     public function testPropertyMetaRobots()
     {
@@ -116,7 +116,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "og_type"
+     * Test attribute "ogType"
      */
     public function testPropertyOgType()
     {
@@ -125,7 +125,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "og_title"
+     * Test attribute "ogTitle"
      */
     public function testPropertyOgTitle()
     {
@@ -134,7 +134,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "og_description"
+     * Test attribute "ogDescription"
      */
     public function testPropertyOgDescription()
     {
@@ -143,7 +143,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "extra_meta_data"
+     * Test attribute "extraMetaData"
      */
     public function testPropertyExtraMetaData()
     {
@@ -152,7 +152,7 @@ class SeoTest extends TestCase
     }
 
     /**
-     * Test attribute "og_image"
+     * Test attribute "ogImage"
      */
     public function testPropertyOgImage()
     {

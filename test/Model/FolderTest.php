@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Folder
- * @package     OpenAPI\Client
+ * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -98,7 +98,7 @@ class FolderTest extends TestCase
     }
 
     /**
-     * Test attribute "internal_name"
+     * Test attribute "internalName"
      */
     public function testPropertyInternalName()
     {
@@ -116,7 +116,7 @@ class FolderTest extends TestCase
     }
 
     /**
-     * Test attribute "parent_id"
+     * Test attribute "parentId"
      */
     public function testPropertyParentId()
     {

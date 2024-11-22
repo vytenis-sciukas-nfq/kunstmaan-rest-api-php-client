@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional]
-**hidden_from_nav** | **bool** |  | [optional]
-**ref_entity_name** | **string** |  | [optional]
-**internal_name** | **string** |  | [optional]
+**hiddenFromNav** | **bool** |  | [optional]
+**refEntityName** | **string** |  | [optional]
+**internalName** | **string** |  | [optional]
 **slug** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 **lft** | **int** |  | [optional]

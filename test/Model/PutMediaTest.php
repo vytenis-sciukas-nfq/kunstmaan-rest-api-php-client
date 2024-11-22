@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description PutMedia
- * @package     OpenAPI\Client
+ * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -98,7 +98,7 @@ class PutMediaTest extends TestCase
     }
 
     /**
-     * Test attribute "copy_right"
+     * Test attribute "copyRight"
      */
     public function testPropertyCopyRight()
     {
@@ -107,7 +107,7 @@ class PutMediaTest extends TestCase
     }
 
     /**
-     * Test attribute "folder_id"
+     * Test attribute "folderId"
      */
     public function testPropertyFolderId()
     {

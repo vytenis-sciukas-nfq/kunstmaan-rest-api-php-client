@@ -1,4 +1,4 @@
-# OpenAPI\Client\ConfigApi
+# NFQ\KunstmaanRestApi\PhpClient\ConfigApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getConfig()`
 
 ```php
-getConfig($internal_name): \OpenAPI\Client\Model\SingleConfig
+getConfig($internalName): \NFQ\KunstmaanRestApi\PhpClient\Model\SingleConfig
 ```
 
 Retrieve form submissions paginated
@@ -25,21 +25,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\ConfigApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\ConfigApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$internal_name = 'internal_name_example'; // string
+$internalName = 'internalName_example'; // string
 
 try {
-    $result = $apiInstance->getConfig($internal_name);
+    $result = $apiInstance->getConfig($internalName);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConfigApi->getConfig: ', $e->getMessage(), PHP_EOL;
@@ -50,11 +50,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **internal_name** | **string**|  | |
+| **internalName** | **string**|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SingleConfig**](../Model/SingleConfig.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\SingleConfig**](../Model/SingleConfig.md)
 
 ### Authorization
 

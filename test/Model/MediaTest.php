@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Media
- * @package     OpenAPI\Client
+ * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -125,7 +125,7 @@ class MediaTest extends TestCase
     }
 
     /**
-     * Test attribute "original_filename"
+     * Test attribute "originalFilename"
      */
     public function testPropertyOriginalFilename()
     {
@@ -143,7 +143,7 @@ class MediaTest extends TestCase
     }
 
     /**
-     * Test attribute "content_type"
+     * Test attribute "contentType"
      */
     public function testPropertyContentType()
     {

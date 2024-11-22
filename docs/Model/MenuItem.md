@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional]
-**menu** | [**\OpenAPI\Client\Model\Folder**](Folder.md) |  | [optional]
-**node_translation** | [**\OpenAPI\Client\Model\NodeTranslation**](NodeTranslation.md) |  | [optional]
+**menu** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\Folder**](Folder.md) |  | [optional]
+**nodeTranslation** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\NodeTranslation**](NodeTranslation.md) |  | [optional]
 **type** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **url** | **string** |  | [optional]
-**new_window** | **bool** |  | [optional]
+**newWindow** | **bool** |  | [optional]
 **lft** | **int** |  | [optional]
 **rgt** | **int** |  | [optional]
 **lvl** | **int** |  | [optional]

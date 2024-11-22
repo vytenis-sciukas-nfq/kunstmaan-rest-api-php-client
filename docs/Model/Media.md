@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **copyright** | **string** |  | [optional]
 **url** | **string** |  | [optional]
-**original_filename** | **string** |  | [optional]
-**folder** | [**\OpenAPI\Client\Model\Folder**](Folder.md) |  | [optional]
-**content_type** | **string** |  | [optional]
+**originalFilename** | **string** |  | [optional]
+**folder** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\Folder**](Folder.md) |  | [optional]
+**contentType** | **string** |  | [optional]
 **metadata** | **string** |  | [optional]
 **filetype** | **string** |  | [optional]
 

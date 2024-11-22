@@ -1,4 +1,4 @@
-# OpenAPI\Client\RedirectApi
+# NFQ\KunstmaanRestApi\PhpClient\RedirectApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getRedirects()`
 
 ```php
-getRedirects($page, $limit): \OpenAPI\Client\Model\ListRedirect
+getRedirects($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect
 ```
 
 Retrieve form submissions paginated
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\RedirectApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\RedirectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ListRedirect**](../Model/ListRedirect.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\ListRedirect**](../Model/ListRedirect.md)
 
 ### Authorization
 

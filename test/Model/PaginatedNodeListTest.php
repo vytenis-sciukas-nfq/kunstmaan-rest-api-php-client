@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description PaginatedNodeList
- * @package     OpenAPI\Client
+ * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,7 +80,7 @@ class PaginatedNodeListTest extends TestCase
     }
 
     /**
-     * Test attribute "_links"
+     * Test attribute "links"
      */
     public function testPropertyLinks()
     {
@@ -89,7 +89,7 @@ class PaginatedNodeListTest extends TestCase
     }
 
     /**
-     * Test attribute "_embedded"
+     * Test attribute "embedded"
      */
     public function testPropertyEmbedded()
     {
@@ -107,7 +107,7 @@ class PaginatedNodeListTest extends TestCase
     }
 
     /**
-     * Test attribute "total_pages"
+     * Test attribute "totalPages"
      */
     public function testPropertyTotalPages()
     {
@@ -116,7 +116,7 @@ class PaginatedNodeListTest extends TestCase
     }
 
     /**
-     * Test attribute "total_items"
+     * Test attribute "totalItems"
      */
     public function testPropertyTotalItems()
     {

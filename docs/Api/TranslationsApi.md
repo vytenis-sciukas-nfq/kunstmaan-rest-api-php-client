@@ -1,4 +1,4 @@
-# OpenAPI\Client\TranslationsApi
+# NFQ\KunstmaanRestApi\PhpClient\TranslationsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createTranslation()`
 
 ```php
-createTranslation($domain, $post_translation, $force): SingleTranslation[]
+createTranslation($domain, $postTranslation, $force): SingleTranslation[]
 ```
 
 
@@ -31,23 +31,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$post_translation = array(new \OpenAPI\Client\Model\PostTranslation()); // PostTranslation[] | The posted translations
+$postTranslation = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslation()); // PostTranslation[] | The posted translations
 $force = 'force_example'; // string | Force=true will overwrite existing translations, otherwise will be skipped
 
 try {
-    $result = $apiInstance->createTranslation($domain, $post_translation, $force);
+    $result = $apiInstance->createTranslation($domain, $postTranslation, $force);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->createTranslation: ', $e->getMessage(), PHP_EOL;
@@ -59,7 +59,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **post_translation** | [**PostTranslation[]**](../Model/PostTranslation.md)| The posted translations | |
+| **postTranslation** | [**PostTranslation[]**](../Model/PostTranslation.md)| The posted translations | |
 | **force** | **string**| Force&#x3D;true will overwrite existing translations, otherwise will be skipped | [optional] |
 
 ### Return type
@@ -82,7 +82,7 @@ try {
 ## `deprecateTranslation()`
 
 ```php
-deprecateTranslation($domain, $deprecate_keyword)
+deprecateTranslation($domain, $deprecateKeyword)
 ```
 
 
@@ -97,22 +97,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$deprecate_keyword = array(new \OpenAPI\Client\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
+$deprecateKeyword = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
 
 try {
-    $apiInstance->deprecateTranslation($domain, $deprecate_keyword);
+    $apiInstance->deprecateTranslation($domain, $deprecateKeyword);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->deprecateTranslation: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,7 +123,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **deprecate_keyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
+| **deprecateKeyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
 
 ### Return type
 
@@ -145,7 +145,7 @@ void (empty response body)
 ## `disableTranslation()`
 
 ```php
-disableTranslation($domain, $disabling_date)
+disableTranslation($domain, $disablingDate)
 ```
 
 
@@ -160,22 +160,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$disabling_date = new \OpenAPI\Client\Model\DisablingDate(); // \OpenAPI\Client\Model\DisablingDate | The posted translations
+$disablingDate = new \NFQ\KunstmaanRestApi\PhpClient\Model\DisablingDate(); // \NFQ\KunstmaanRestApi\PhpClient\Model\DisablingDate | The posted translations
 
 try {
-    $apiInstance->disableTranslation($domain, $disabling_date);
+    $apiInstance->disableTranslation($domain, $disablingDate);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->disableTranslation: ', $e->getMessage(), PHP_EOL;
 }
@@ -186,7 +186,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **disabling_date** | [**\OpenAPI\Client\Model\DisablingDate**](../Model/DisablingDate.md)| The posted translations | |
+| **disablingDate** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\DisablingDate**](../Model/DisablingDate.md)| The posted translations | |
 
 ### Return type
 
@@ -208,7 +208,7 @@ void (empty response body)
 ## `enableTranslation()`
 
 ```php
-enableTranslation($domain, $deprecate_keyword)
+enableTranslation($domain, $deprecateKeyword)
 ```
 
 
@@ -223,22 +223,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$deprecate_keyword = array(new \OpenAPI\Client\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
+$deprecateKeyword = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
 
 try {
-    $apiInstance->enableTranslation($domain, $deprecate_keyword);
+    $apiInstance->enableTranslation($domain, $deprecateKeyword);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->enableTranslation: ', $e->getMessage(), PHP_EOL;
 }
@@ -249,7 +249,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **deprecate_keyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
+| **deprecateKeyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
 
 ### Return type
 
@@ -271,7 +271,7 @@ void (empty response body)
 ## `getTranslation()`
 
 ```php
-getTranslation($keyword, $domain, $locale): \OpenAPI\Client\Model\SingleTranslation
+getTranslation($keyword, $domain, $locale): \NFQ\KunstmaanRestApi\PhpClient\Model\SingleTranslation
 ```
 
 
@@ -286,12 +286,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -319,7 +319,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SingleTranslation**](../Model/SingleTranslation.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\SingleTranslation**](../Model/SingleTranslation.md)
 
 ### Authorization
 
@@ -352,12 +352,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -414,12 +414,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\TranslationsApi(
+$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
