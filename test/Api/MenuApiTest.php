@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  NFQ\KunstmaanRestApi\PhpClient
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\Test\Api;
+namespace OpenAPI\Client\Test\Api;
 
-use \NFQ\KunstmaanRestApi\PhpClient\Configuration;
-use \NFQ\KunstmaanRestApi\PhpClient\ApiException;
-use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
+use \OpenAPI\Client\Configuration;
+use \OpenAPI\Client\ApiException;
+use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * MenuApiTest Class Doc Comment
  *
  * @category Class
- * @package  NFQ\KunstmaanRestApi\PhpClient
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

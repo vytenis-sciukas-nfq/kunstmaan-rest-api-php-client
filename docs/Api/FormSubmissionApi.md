@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\FormSubmissionApi
+# OpenAPI\Client\FormSubmissionApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getFormSubmissions()`
 
 ```php
-getFormSubmissions($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList
+getFormSubmissions($page, $limit): \OpenAPI\Client\Model\FormSubmissionList
 ```
 
 Retrieve form submissions paginated
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\FormSubmissionApi(
+$apiInstance = new OpenAPI\Client\Api\FormSubmissionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList**](../Model/FormSubmissionList.md)
+[**\OpenAPI\Client\Model\FormSubmissionList**](../Model/FormSubmissionList.md)
 
 ### Authorization
 

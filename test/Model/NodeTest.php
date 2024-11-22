@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  NFQ\KunstmaanRestApi\PhpClient
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
+namespace OpenAPI\Client\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description Node
- * @package     NFQ\KunstmaanRestApi\PhpClient
+ * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -89,7 +89,7 @@ class NodeTest extends TestCase
     }
 
     /**
-     * Test attribute "hiddenFromNav"
+     * Test attribute "hidden_from_nav"
      */
     public function testPropertyHiddenFromNav()
     {
@@ -98,7 +98,7 @@ class NodeTest extends TestCase
     }
 
     /**
-     * Test attribute "refEntityName"
+     * Test attribute "ref_entity_name"
      */
     public function testPropertyRefEntityName()
     {
@@ -107,7 +107,7 @@ class NodeTest extends TestCase
     }
 
     /**
-     * Test attribute "internalName"
+     * Test attribute "internal_name"
      */
     public function testPropertyInternalName()
     {

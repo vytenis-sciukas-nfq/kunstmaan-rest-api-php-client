@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\ArticleApi
+# OpenAPI\Client\ArticleApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getAuthors()`
 
 ```php
-getAuthors($type, $page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\ListAuthor
+getAuthors($type, $page, $limit): \OpenAPI\Client\Model\ListAuthor
 ```
 
 Retrieve form submissions paginated
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\ArticleApi(
+$apiInstance = new OpenAPI\Client\Api\ArticleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\ListAuthor**](../Model/ListAuthor.md)
+[**\OpenAPI\Client\Model\ListAuthor**](../Model/ListAuthor.md)
 
 ### Authorization
 

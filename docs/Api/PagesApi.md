@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\PagesApi
+# OpenAPI\Client\PagesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getPage()`
 
 ```php
-getPage($id): \NFQ\KunstmaanRestApi\PhpClient\Model\GetApiPage
+getPage($id): \OpenAPI\Client\Model\GetApiPage
 ```
 
 Get a page by node translation ID
@@ -28,12 +28,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\PagesApi(
+$apiInstance = new OpenAPI\Client\Api\PagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\GetApiPage**](../Model/GetApiPage.md)
+[**\OpenAPI\Client\Model\GetApiPage**](../Model/GetApiPage.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `getPages()`
 
 ```php
-getPages($page, $limit, $type, $locale, $internalName, $nodeId, $online, $versionType): \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage
+getPages($page, $limit, $type, $locale, $internal_name, $node_id, $online, $version_type): \OpenAPI\Client\Model\ApiPage
 ```
 
 Retrieve nodes paginated
@@ -90,12 +90,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\PagesApi(
+$apiInstance = new OpenAPI\Client\Api\PagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -105,13 +105,13 @@ $page = '1'; // string | The current page
 $limit = '20'; // string | Amount of results (default 20)
 $type = 'type_example'; // string | The FQCN of the page
 $locale = 'locale_example'; // string | The language of your content
-$internalName = 'internalName_example'; // string | The internal name of the page
-$nodeId = 'nodeId_example'; // string | Node id
+$internal_name = 'internal_name_example'; // string | The internal name of the page
+$node_id = 'node_id_example'; // string | Node id
 $online = 'true'; // string | Include only online nodes
-$versionType = 'versionType_example'; // string | VersionType (public or draft)
+$version_type = 'version_type_example'; // string | VersionType (public or draft)
 
 try {
-    $result = $apiInstance->getPages($page, $limit, $type, $locale, $internalName, $nodeId, $online, $versionType);
+    $result = $apiInstance->getPages($page, $limit, $type, $locale, $internal_name, $node_id, $online, $version_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->getPages: ', $e->getMessage(), PHP_EOL;
@@ -126,14 +126,14 @@ try {
 | **limit** | **string**| Amount of results (default 20) | [default to &#39;20&#39;] |
 | **type** | **string**| The FQCN of the page | [optional] |
 | **locale** | **string**| The language of your content | [optional] |
-| **internalName** | **string**| The internal name of the page | [optional] |
-| **nodeId** | **string**| Node id | [optional] |
+| **internal_name** | **string**| The internal name of the page | [optional] |
+| **node_id** | **string**| Node id | [optional] |
 | **online** | **string**| Include only online nodes | [optional] [default to &#39;true&#39;] |
-| **versionType** | **string**| VersionType (public or draft) | [optional] |
+| **version_type** | **string**| VersionType (public or draft) | [optional] |
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage**](../Model/ApiPage.md)
+[**\OpenAPI\Client\Model\ApiPage**](../Model/ApiPage.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ try {
 ## `postApiPage()`
 
 ```php
-postApiPage($postApiPage): \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage
+postApiPage($post_api_page): \OpenAPI\Client\Model\ApiPage
 ```
 
 Creates a ApiPage
@@ -166,21 +166,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\PagesApi(
+$apiInstance = new OpenAPI\Client\Api\PagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$postApiPage = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostApiPage(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostApiPage | apiPage
+$post_api_page = new \OpenAPI\Client\Model\PostApiPage(); // \OpenAPI\Client\Model\PostApiPage | apiPage
 
 try {
-    $result = $apiInstance->postApiPage($postApiPage);
+    $result = $apiInstance->postApiPage($post_api_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->postApiPage: ', $e->getMessage(), PHP_EOL;
@@ -191,11 +191,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **postApiPage** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostApiPage**](../Model/PostApiPage.md)| apiPage | [optional] |
+| **post_api_page** | [**\OpenAPI\Client\Model\PostApiPage**](../Model/PostApiPage.md)| apiPage | [optional] |
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage**](../Model/ApiPage.md)
+[**\OpenAPI\Client\Model\ApiPage**](../Model/ApiPage.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ try {
 ## `putApiPage()`
 
 ```php
-putApiPage($id, $apiPage): \NFQ\KunstmaanRestApi\PhpClient\Model\PutApiPage
+putApiPage($id, $api_page): \OpenAPI\Client\Model\PutApiPage
 ```
 
 Update a ApiPage
@@ -228,22 +228,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\PagesApi(
+$apiInstance = new OpenAPI\Client\Api\PagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The node translation ID
-$apiPage = new \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage(); // \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage | apiPage
+$api_page = new \OpenAPI\Client\Model\ApiPage(); // \OpenAPI\Client\Model\ApiPage | apiPage
 
 try {
-    $result = $apiInstance->putApiPage($id, $apiPage);
+    $result = $apiInstance->putApiPage($id, $api_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->putApiPage: ', $e->getMessage(), PHP_EOL;
@@ -255,11 +255,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The node translation ID | |
-| **apiPage** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPage**](../Model/ApiPage.md)| apiPage | [optional] |
+| **api_page** | [**\OpenAPI\Client\Model\ApiPage**](../Model/ApiPage.md)| apiPage | [optional] |
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\PutApiPage**](../Model/PutApiPage.md)
+[**\OpenAPI\Client\Model\PutApiPage**](../Model/PutApiPage.md)
 
 ### Authorization
 

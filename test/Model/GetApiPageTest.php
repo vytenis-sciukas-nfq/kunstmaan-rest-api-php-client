@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  NFQ\KunstmaanRestApi\PhpClient
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
+namespace OpenAPI\Client\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description GetApiPage
- * @package     NFQ\KunstmaanRestApi\PhpClient
+ * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -89,7 +89,7 @@ class GetApiPageTest extends TestCase
     }
 
     /**
-     * Test attribute "pageTemplate"
+     * Test attribute "page_template"
      */
     public function testPropertyPageTemplate()
     {
@@ -125,7 +125,7 @@ class GetApiPageTest extends TestCase
     }
 
     /**
-     * Test attribute "nodeTranslation"
+     * Test attribute "node_translation"
      */
     public function testPropertyNodeTranslation()
     {
@@ -134,7 +134,7 @@ class GetApiPageTest extends TestCase
     }
 
     /**
-     * Test attribute "nodeVersion"
+     * Test attribute "node_version"
      */
     public function testPropertyNodeVersion()
     {

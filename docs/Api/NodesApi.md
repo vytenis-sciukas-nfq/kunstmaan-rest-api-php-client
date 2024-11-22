@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\NodesApi
+# OpenAPI\Client\NodesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getNode()`
 
 ```php
-getNode($id): \NFQ\KunstmaanRestApi\PhpClient\Model\Node
+getNode($id): \OpenAPI\Client\Model\Node
 ```
 
 Retrieve a single node
@@ -28,12 +28,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
+$apiInstance = new OpenAPI\Client\Api\NodesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\Node**](../Model/Node.md)
+[**\OpenAPI\Client\Model\Node**](../Model/Node.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `getNodeChildren()`
 
 ```php
-getNodeChildren($id, $page, $limit): GetNode[]
+getNodeChildren($id, $page, $limit): \OpenAPI\Client\Model\PaginatedNodeList
 ```
 
 Retrieve a single node's children
@@ -90,12 +90,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
+$apiInstance = new OpenAPI\Client\Api\NodesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**GetNode[]**](../Model/GetNode.md)
+[**\OpenAPI\Client\Model\PaginatedNodeList**](../Model/PaginatedNodeList.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ try {
 ## `getNodeParent()`
 
 ```php
-getNodeParent($id): \NFQ\KunstmaanRestApi\PhpClient\Model\Node
+getNodeParent($id): \OpenAPI\Client\Model\Node
 ```
 
 Retrieve a single node's parent
@@ -156,12 +156,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
+$apiInstance = new OpenAPI\Client\Api\NodesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\Node**](../Model/Node.md)
+[**\OpenAPI\Client\Model\Node**](../Model/Node.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `getNodes()`
 
 ```php
-getNodes($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName): GetNode[]
+getNodes($page, $limit, $internal_name, $locale, $hidden_from_nav, $ref_entity_name): GetNode[]
 ```
 
 Retrieve nodes paginated
@@ -218,12 +218,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
+$apiInstance = new OpenAPI\Client\Api\NodesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -231,13 +231,13 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
 );
 $page = '1'; // string | The current page
 $limit = '20'; // string | Amount of results (default 20)
-$internalName = 'internalName_example'; // string | The internal name of the node
+$internal_name = 'internal_name_example'; // string | The internal name of the node
 $locale = 'locale_example'; // string | Locale
-$hiddenFromNav = 'hiddenFromNav_example'; // string | If true, only nodes hidden from nav will be returned
-$refEntityName = 'refEntityName_example'; // string | Which pages you want to have returned
+$hidden_from_nav = 'hidden_from_nav_example'; // string | If true, only nodes hidden from nav will be returned
+$ref_entity_name = 'ref_entity_name_example'; // string | Which pages you want to have returned
 
 try {
-    $result = $apiInstance->getNodes($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName);
+    $result = $apiInstance->getNodes($page, $limit, $internal_name, $locale, $hidden_from_nav, $ref_entity_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NodesApi->getNodes: ', $e->getMessage(), PHP_EOL;
@@ -250,10 +250,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **string**| The current page | [optional] [default to &#39;1&#39;] |
 | **limit** | **string**| Amount of results (default 20) | [optional] [default to &#39;20&#39;] |
-| **internalName** | **string**| The internal name of the node | [optional] |
+| **internal_name** | **string**| The internal name of the node | [optional] |
 | **locale** | **string**| Locale | [optional] |
-| **hiddenFromNav** | **string**| If true, only nodes hidden from nav will be returned | [optional] |
-| **refEntityName** | **string**| Which pages you want to have returned | [optional] |
+| **hidden_from_nav** | **string**| If true, only nodes hidden from nav will be returned | [optional] |
+| **ref_entity_name** | **string**| Which pages you want to have returned | [optional] |
 
 ### Return type
 

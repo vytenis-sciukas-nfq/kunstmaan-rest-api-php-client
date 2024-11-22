@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional]
 **lang** | **string** |  | [optional]
 **created** | **string** |  | [optional]
-**ipAddress** | **string** |  | [optional]
+**ip_address** | **string** |  | [optional]
 **fields** | [**Sting**](Sting.md) |  | [optional]
 **node** | **object** |  | [optional]
 

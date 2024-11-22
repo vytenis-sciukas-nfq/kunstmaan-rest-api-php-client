@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\MenuApi
+# OpenAPI\Client\MenuApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `addMenuItem()`
 
 ```php
-addMenuItem($id, $postMenuItem)
+addMenuItem($id, $post_menu_item)
 ```
 
 Creates a new Menu item
@@ -32,22 +32,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The id of the menu
-$postMenuItem = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem
+$post_menu_item = new \OpenAPI\Client\Model\PostMenuItem(); // \OpenAPI\Client\Model\PostMenuItem
 
 try {
-    $apiInstance->addMenuItem($id, $postMenuItem);
+    $apiInstance->addMenuItem($id, $post_menu_item);
 } catch (Exception $e) {
     echo 'Exception when calling MenuApi->addMenuItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,7 +58,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the menu | |
-| **postMenuItem** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostMenuItem**](../Model/PostMenuItem.md)|  | [optional] |
+| **post_menu_item** | [**\OpenAPI\Client\Model\PostMenuItem**](../Model/PostMenuItem.md)|  | [optional] |
 
 ### Return type
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -156,12 +156,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -202,7 +202,7 @@ void (empty response body)
 ## `getMenuItems()`
 
 ```php
-getMenuItems($id, $page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList
+getMenuItems($id, $page, $limit): \OpenAPI\Client\Model\MenuItemList
 ```
 
 Retrieve menu items paginated
@@ -217,12 +217,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -250,7 +250,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList**](../Model/MenuItemList.md)
+[**\OpenAPI\Client\Model\MenuItemList**](../Model/MenuItemList.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ try {
 ## `getMenus()`
 
 ```php
-getMenus($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList
+getMenus($page, $limit): \OpenAPI\Client\Model\MenuList
 ```
 
 Retrieve menu paginated
@@ -283,12 +283,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -314,7 +314,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList**](../Model/MenuList.md)
+[**\OpenAPI\Client\Model\MenuList**](../Model/MenuList.md)
 
 ### Authorization
 
@@ -332,7 +332,7 @@ try {
 ## `postMenu()`
 
 ```php
-postMenu($postMenu)
+postMenu($post_menu)
 ```
 
 Creates a new Menu
@@ -347,21 +347,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$postMenu = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu
+$post_menu = new \OpenAPI\Client\Model\PostMenu(); // \OpenAPI\Client\Model\PostMenu
 
 try {
-    $apiInstance->postMenu($postMenu);
+    $apiInstance->postMenu($post_menu);
 } catch (Exception $e) {
     echo 'Exception when calling MenuApi->postMenu: ', $e->getMessage(), PHP_EOL;
 }
@@ -371,7 +371,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **postMenu** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu**](../Model/PostMenu.md)|  | [optional] |
+| **post_menu** | [**\OpenAPI\Client\Model\PostMenu**](../Model/PostMenu.md)|  | [optional] |
 
 ### Return type
 
@@ -393,7 +393,7 @@ void (empty response body)
 ## `putMenu()`
 
 ```php
-putMenu($id, $postMenu)
+putMenu($id, $post_menu)
 ```
 
 Update a menu
@@ -408,22 +408,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The id of the menu
-$postMenu = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu
+$post_menu = new \OpenAPI\Client\Model\PostMenu(); // \OpenAPI\Client\Model\PostMenu
 
 try {
-    $apiInstance->putMenu($id, $postMenu);
+    $apiInstance->putMenu($id, $post_menu);
 } catch (Exception $e) {
     echo 'Exception when calling MenuApi->putMenu: ', $e->getMessage(), PHP_EOL;
 }
@@ -434,7 +434,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the menu | |
-| **postMenu** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostMenu**](../Model/PostMenu.md)|  | [optional] |
+| **post_menu** | [**\OpenAPI\Client\Model\PostMenu**](../Model/PostMenu.md)|  | [optional] |
 
 ### Return type
 
@@ -456,7 +456,7 @@ void (empty response body)
 ## `putMenuItem()`
 
 ```php
-putMenuItem($id, $putMenuItem)
+putMenuItem($id, $put_menu_item)
 ```
 
 Update a menuItem
@@ -471,22 +471,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MenuApi(
+$apiInstance = new OpenAPI\Client\Api\MenuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The id of the menuItem
-$putMenuItem = new \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem
+$put_menu_item = new \OpenAPI\Client\Model\PutMenuItem(); // \OpenAPI\Client\Model\PutMenuItem
 
 try {
-    $apiInstance->putMenuItem($id, $putMenuItem);
+    $apiInstance->putMenuItem($id, $put_menu_item);
 } catch (Exception $e) {
     echo 'Exception when calling MenuApi->putMenuItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -497,7 +497,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the menuItem | |
-| **putMenuItem** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PutMenuItem**](../Model/PutMenuItem.md)|  | [optional] |
+| **put_menu_item** | [**\OpenAPI\Client\Model\PutMenuItem**](../Model/PutMenuItem.md)|  | [optional] |
 
 ### Return type
 

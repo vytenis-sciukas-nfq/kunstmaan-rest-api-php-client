@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  NFQ\KunstmaanRestApi\PhpClient
+ * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
+namespace OpenAPI\Client\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description FormSubmission
- * @package     NFQ\KunstmaanRestApi\PhpClient
+ * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -107,7 +107,7 @@ class FormSubmissionTest extends TestCase
     }
 
     /**
-     * Test attribute "ipAddress"
+     * Test attribute "ip_address"
      */
     public function testPropertyIpAddress()
     {

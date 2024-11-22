@@ -1,4 +1,4 @@
-# NFQ\KunstmaanRestApi\PhpClient\MediaApi
+# OpenAPI\Client\MediaApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -34,12 +34,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -141,7 +141,7 @@ void (empty response body)
 ## `getFolder()`
 
 ```php
-getFolder($page, $limit, $name): \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList
+getFolder($page, $limit, $name): \OpenAPI\Client\Model\FolderList
 ```
 
 Retrieve folders paginated
@@ -156,12 +156,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -189,7 +189,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList**](../Model/FolderList.md)
+[**\OpenAPI\Client\Model\FolderList**](../Model/FolderList.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ try {
 ## `getMedia()`
 
 ```php
-getMedia($page, $limit, $name, $folderId): \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList
+getMedia($page, $limit, $name, $folder_id): \OpenAPI\Client\Model\MediaList
 ```
 
 Retrieve media paginated
@@ -222,12 +222,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -236,10 +236,10 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
 $page = '1'; // string | The current page
 $limit = '20'; // string | Amount of results (default 20)
 $name = 'name_example'; // string | The name of the media
-$folderId = 'folderId_example'; // string | The id of the folder to limit the search to
+$folder_id = 'folder_id_example'; // string | The id of the folder to limit the search to
 
 try {
-    $result = $apiInstance->getMedia($page, $limit, $name, $folderId);
+    $result = $apiInstance->getMedia($page, $limit, $name, $folder_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->getMedia: ', $e->getMessage(), PHP_EOL;
@@ -253,11 +253,11 @@ try {
 | **page** | **string**| The current page | [optional] [default to &#39;1&#39;] |
 | **limit** | **string**| Amount of results (default 20) | [optional] [default to &#39;20&#39;] |
 | **name** | **string**| The name of the media | [optional] |
-| **folderId** | **string**| The id of the folder to limit the search to | [optional] |
+| **folder_id** | **string**| The id of the folder to limit the search to | [optional] |
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList**](../Model/MediaList.md)
+[**\OpenAPI\Client\Model\MediaList**](../Model/MediaList.md)
 
 ### Authorization
 
@@ -275,7 +275,7 @@ try {
 ## `getMediaItem()`
 
 ```php
-getMediaItem($id): \NFQ\KunstmaanRestApi\PhpClient\Model\Media
+getMediaItem($id): \OpenAPI\Client\Model\Media
 ```
 
 Retrieve a single media
@@ -290,12 +290,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -319,7 +319,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\Media**](../Model/Media.md)
+[**\OpenAPI\Client\Model\Media**](../Model/Media.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ try {
 ## `moveFolder()`
 
 ```php
-moveFolder($id, $targetId)
+moveFolder($id, $target_id)
 ```
 
 move Folder
@@ -352,22 +352,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The id of the folder
-$targetId = 'targetId_example'; // string | The id of the target folder
+$target_id = 'target_id_example'; // string | The id of the target folder
 
 try {
-    $apiInstance->moveFolder($id, $targetId);
+    $apiInstance->moveFolder($id, $target_id);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->moveFolder: ', $e->getMessage(), PHP_EOL;
 }
@@ -378,7 +378,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the folder | |
-| **targetId** | **string**| The id of the target folder | |
+| **target_id** | **string**| The id of the target folder | |
 
 ### Return type
 
@@ -400,7 +400,7 @@ void (empty response body)
 ## `postFolder()`
 
 ```php
-postFolder($parentId, $postFolder)
+postFolder($parent_id, $post_folder)
 ```
 
 Creates a new Folder
@@ -415,22 +415,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$parentId = 'parentId_example'; // string | The ID of the folder parent
-$postFolder = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder
+$parent_id = 'parent_id_example'; // string | The ID of the folder parent
+$post_folder = new \OpenAPI\Client\Model\PostFolder(); // \OpenAPI\Client\Model\PostFolder
 
 try {
-    $apiInstance->postFolder($parentId, $postFolder);
+    $apiInstance->postFolder($parent_id, $post_folder);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->postFolder: ', $e->getMessage(), PHP_EOL;
 }
@@ -440,8 +440,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **parentId** | **string**| The ID of the folder parent | |
-| **postFolder** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder**](../Model/PostFolder.md)|  | [optional] |
+| **parent_id** | **string**| The ID of the folder parent | |
+| **post_folder** | [**\OpenAPI\Client\Model\PostFolder**](../Model/PostFolder.md)|  | [optional] |
 
 ### Return type
 
@@ -463,7 +463,7 @@ void (empty response body)
 ## `postMedia()`
 
 ```php
-postMedia($uploadMedia)
+postMedia($upload_media)
 ```
 
 Creates a new Media
@@ -478,21 +478,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$uploadMedia = new \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia(); // \NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia
+$upload_media = new \OpenAPI\Client\Model\UploadMedia(); // \OpenAPI\Client\Model\UploadMedia
 
 try {
-    $apiInstance->postMedia($uploadMedia);
+    $apiInstance->postMedia($upload_media);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->postMedia: ', $e->getMessage(), PHP_EOL;
 }
@@ -502,7 +502,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uploadMedia** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\UploadMedia**](../Model/UploadMedia.md)|  | [optional] |
+| **upload_media** | [**\OpenAPI\Client\Model\UploadMedia**](../Model/UploadMedia.md)|  | [optional] |
 
 ### Return type
 
@@ -524,7 +524,7 @@ void (empty response body)
 ## `putFolder()`
 
 ```php
-putFolder($id, $postFolder)
+putFolder($id, $post_folder)
 ```
 
 updates Folder
@@ -539,22 +539,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string | The id of the folder
-$postFolder = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder
+$post_folder = new \OpenAPI\Client\Model\PostFolder(); // \OpenAPI\Client\Model\PostFolder
 
 try {
-    $apiInstance->putFolder($id, $postFolder);
+    $apiInstance->putFolder($id, $post_folder);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->putFolder: ', $e->getMessage(), PHP_EOL;
 }
@@ -565,7 +565,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The id of the folder | |
-| **postFolder** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostFolder**](../Model/PostFolder.md)|  | [optional] |
+| **post_folder** | [**\OpenAPI\Client\Model\PostFolder**](../Model/PostFolder.md)|  | [optional] |
 
 ### Return type
 
@@ -587,7 +587,7 @@ void (empty response body)
 ## `updateMedia()`
 
 ```php
-updateMedia($id, $putMedia)
+updateMedia($id, $put_media)
 ```
 
 updates a Media
@@ -602,22 +602,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = NFQ\KunstmaanRestApi\PhpClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\MediaApi(
+$apiInstance = new OpenAPI\Client\Api\MediaApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 'id_example'; // string
-$putMedia = new \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia
+$put_media = new \OpenAPI\Client\Model\PutMedia(); // \OpenAPI\Client\Model\PutMedia
 
 try {
-    $apiInstance->updateMedia($id, $putMedia);
+    $apiInstance->updateMedia($id, $put_media);
 } catch (Exception $e) {
     echo 'Exception when calling MediaApi->updateMedia: ', $e->getMessage(), PHP_EOL;
 }
@@ -628,7 +628,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **putMedia** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PutMedia**](../Model/PutMedia.md)|  | [optional] |
+| **put_media** | [**\OpenAPI\Client\Model\PutMedia**](../Model/PutMedia.md)|  | [optional] |
 
 ### Return type
 
