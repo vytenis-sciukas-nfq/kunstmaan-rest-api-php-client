@@ -133,7 +133,7 @@ class FormSubmissionApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getFormSubmissions($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
     {
@@ -152,7 +152,7 @@ class FormSubmissionApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFormSubmissionsWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
     {
@@ -183,11 +183,11 @@ class FormSubmissionApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -205,7 +205,7 @@ class FormSubmissionApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -278,7 +278,7 @@ class FormSubmissionApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -311,7 +311,7 @@ class FormSubmissionApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -373,7 +373,7 @@ class FormSubmissionApi
      */
     public function getFormSubmissionsAsyncWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getFormSubmissions'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList';
         $request = $this->getFormSubmissionsRequest($page, $limit, $contentType);
 
         return $this->client

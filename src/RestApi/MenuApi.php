@@ -888,7 +888,7 @@ class MenuApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getMenuItems($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
@@ -908,7 +908,7 @@ class MenuApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMenuItemsWithHttpInfo($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
@@ -939,11 +939,11 @@ class MenuApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -961,7 +961,7 @@ class MenuApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1034,7 +1034,7 @@ class MenuApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1067,7 +1067,7 @@ class MenuApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1131,7 +1131,7 @@ class MenuApi
      */
     public function getMenuItemsAsyncWithHttpInfo($id, $page = '1', $limit = '20', string $contentType = self::contentTypes['getMenuItems'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList';
         $request = $this->getMenuItemsRequest($id, $page, $limit, $contentType);
 
         return $this->client
@@ -1306,7 +1306,7 @@ class MenuApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getMenus($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
@@ -1325,7 +1325,7 @@ class MenuApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMenusWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
@@ -1356,11 +1356,11 @@ class MenuApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1378,7 +1378,7 @@ class MenuApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1451,7 +1451,7 @@ class MenuApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1484,7 +1484,7 @@ class MenuApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1546,7 +1546,7 @@ class MenuApi
      */
     public function getMenusAsyncWithHttpInfo($page = '1', $limit = '20', string $contentType = self::contentTypes['getMenus'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList';
         $request = $this->getMenusRequest($page, $limit, $contentType);
 
         return $this->client

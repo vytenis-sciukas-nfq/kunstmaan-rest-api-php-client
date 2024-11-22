@@ -1,6 +1,6 @@
 <?php
 /**
- * MediaList
+ * PaginatedMenuListAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * MediaList Class Doc Comment
+ * PaginatedMenuListAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedMenuListAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MediaList';
+    protected static $openAPIModelName = 'PaginatedMenuList_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'media' => 'Media[]'
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\Menu[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'media' => null
+        'items' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'media' => false
+        'items' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'media' => 'media'
+        'items' => 'items'
     ];
 
     /**
@@ -175,7 +175,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'media' => 'setMedia'
+        'items' => 'setItems'
     ];
 
     /**
@@ -184,7 +184,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'media' => 'getMedia'
+        'items' => 'getItems'
     ];
 
     /**
@@ -244,7 +244,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('media', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -290,28 +290,28 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets media
+     * Gets items
      *
-     * @return Media[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\Menu[]|null
      */
-    public function getMedia()
+    public function getItems()
     {
-        return $this->container['media'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets media
+     * Sets items
      *
-     * @param Media[]|null $media media
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\Menu[]|null $items items
      *
      * @return self
      */
-    public function setMedia($media)
+    public function setItems($items)
     {
-        if (is_null($media)) {
-            throw new \InvalidArgumentException('non-nullable media cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['media'] = $media;
+        $this->container['items'] = $items;
 
         return $this;
     }

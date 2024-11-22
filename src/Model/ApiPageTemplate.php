@@ -58,7 +58,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'contexts' => 'ApiContext[]'
+        'contexts' => '\NFQ\KunstmaanRestApi\PhpClient\Model\ApiContext[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets contexts
      *
-     * @return ApiContext[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ApiContext[]|null
      */
     public function getContexts()
     {
@@ -336,7 +336,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets contexts
      *
-     * @param ApiContext[]|null $contexts contexts
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\ApiContext[]|null $contexts contexts
      *
      * @return self
      */

@@ -57,7 +57,7 @@ class ListRedirect implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'folder' => 'SingleRedirect[]'
+        'folder' => '\NFQ\KunstmaanRestApi\PhpClient\Model\SingleRedirect[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ListRedirect implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets folder
      *
-     * @return SingleRedirect[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\SingleRedirect[]|null
      */
     public function getFolder()
     {
@@ -302,7 +302,7 @@ class ListRedirect implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets folder
      *
-     * @param SingleRedirect[]|null $folder folder
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\SingleRedirect[]|null $folder folder
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * MenuItemList
+ * PaginatedFolderListAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * MenuItemList Class Doc Comment
+ * PaginatedFolderListAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedFolderListAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MenuItemList';
+    protected static $openAPIModelName = 'PaginatedFolderList_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'menuItems' => 'MenuItem[]'
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\Folder[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'menuItems' => null
+        'items' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'menuItems' => false
+        'items' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'menuItems' => 'menu-items'
+        'items' => 'items'
     ];
 
     /**
@@ -175,7 +175,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'menuItems' => 'setMenuItems'
+        'items' => 'setItems'
     ];
 
     /**
@@ -184,7 +184,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'menuItems' => 'getMenuItems'
+        'items' => 'getItems'
     ];
 
     /**
@@ -244,7 +244,7 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('menuItems', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -274,9 +274,6 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['menuItems'] === null) {
-            $invalidProperties[] = "'menuItems' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -293,28 +290,28 @@ class MenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets menuItems
+     * Gets items
      *
-     * @return MenuItem[]
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\Folder[]|null
      */
-    public function getMenuItems()
+    public function getItems()
     {
-        return $this->container['menuItems'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets menuItems
+     * Sets items
      *
-     * @param MenuItem[] $menuItems menuItems
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\Folder[]|null $items items
      *
      * @return self
      */
-    public function setMenuItems($menuItems)
+    public function setItems($items)
     {
-        if (is_null($menuItems)) {
-            throw new \InvalidArgumentException('non-nullable menuItems cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['menuItems'] = $menuItems;
+        $this->container['items'] = $items;
 
         return $this;
     }

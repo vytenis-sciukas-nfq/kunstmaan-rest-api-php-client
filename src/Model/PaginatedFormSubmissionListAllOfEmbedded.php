@@ -1,6 +1,6 @@
 <?php
 /**
- * NodeList
+ * PaginatedFormSubmissionListAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * NodeList Class Doc Comment
+ * PaginatedFormSubmissionListAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedFormSubmissionListAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NodeList';
+    protected static $openAPIModelName = 'PaginatedFormSubmissionList_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmission[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'items' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'items' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'items' => 'items'
     ];
 
     /**
@@ -175,7 +175,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'items' => 'setItems'
     ];
 
     /**
@@ -184,7 +184,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'items' => 'getItems'
     ];
 
     /**
@@ -244,6 +244,7 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -287,6 +288,33 @@ class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets items
+     *
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmission[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmission[]|null $items items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        }
+        $this->container['items'] = $items;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

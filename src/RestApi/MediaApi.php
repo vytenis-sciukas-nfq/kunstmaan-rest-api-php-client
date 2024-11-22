@@ -643,7 +643,7 @@ class MediaApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getFolder($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
     {
@@ -663,7 +663,7 @@ class MediaApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFolderWithHttpInfo($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
     {
@@ -694,11 +694,11 @@ class MediaApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -716,7 +716,7 @@ class MediaApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -789,7 +789,7 @@ class MediaApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -822,7 +822,7 @@ class MediaApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -886,7 +886,7 @@ class MediaApi
      */
     public function getFolderAsyncWithHttpInfo($page = '1', $limit = '20', $name = null, string $contentType = self::contentTypes['getFolder'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList';
         $request = $this->getFolderRequest($page, $limit, $name, $contentType);
 
         return $this->client
@@ -1061,7 +1061,7 @@ class MediaApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getMedia($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
     {
@@ -1082,7 +1082,7 @@ class MediaApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMediaWithHttpInfo($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
     {
@@ -1113,11 +1113,11 @@ class MediaApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1135,7 +1135,7 @@ class MediaApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1208,7 +1208,7 @@ class MediaApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1241,7 +1241,7 @@ class MediaApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1307,7 +1307,7 @@ class MediaApi
      */
     public function getMediaAsyncWithHttpInfo($page = '1', $limit = '20', $name = null, $folderId = null, string $contentType = self::contentTypes['getMedia'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList';
         $request = $this->getMediaRequest($page, $limit, $name, $folderId, $contentType);
 
         return $this->client

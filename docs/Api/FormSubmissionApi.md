@@ -10,7 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getFormSubmissions()`
 
 ```php
-getFormSubmissions($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList
+getFormSubmissions($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList
 ```
 
 Retrieve form submissions paginated
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\FormSubmissionList**](../Model/FormSubmissionList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFormSubmissionList**](../Model/PaginatedFormSubmissionList.md)
 
 ### Authorization
 

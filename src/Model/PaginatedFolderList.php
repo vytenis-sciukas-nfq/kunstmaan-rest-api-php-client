@@ -1,6 +1,6 @@
 <?php
 /**
- * PaginatedNodeListLinks
+ * PaginatedFolderList
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * PaginatedNodeListLinks Class Doc Comment
+ * PaginatedFolderList Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedFolderList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaginatedNodeList__links';
+    protected static $openAPIModelName = 'PaginatedFolderList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'self' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
-        'first' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
-        'last' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
-        'next' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
-        'prev' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf'
+        'links' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks',
+        'embedded' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderListAllOfEmbedded',
+        'page' => 'int',
+        'totalPages' => 'int',
+        'totalItems' => 'int'
     ];
 
     /**
@@ -72,11 +72,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'self' => null,
-        'first' => null,
-        'last' => null,
-        'next' => null,
-        'prev' => null
+        'links' => null,
+        'embedded' => null,
+        'page' => null,
+        'totalPages' => null,
+        'totalItems' => null
     ];
 
     /**
@@ -85,11 +85,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'self' => false,
-        'first' => false,
-        'last' => false,
-        'next' => false,
-        'prev' => false
+        'links' => false,
+        'embedded' => false,
+        'page' => false,
+        'totalPages' => false,
+        'totalItems' => false
     ];
 
     /**
@@ -178,11 +178,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'self' => 'self',
-        'first' => 'first',
-        'last' => 'last',
-        'next' => 'next',
-        'prev' => 'prev'
+        'links' => '_links',
+        'embedded' => '_embedded',
+        'page' => 'page',
+        'totalPages' => 'total_pages',
+        'totalItems' => 'total_items'
     ];
 
     /**
@@ -191,11 +191,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'self' => 'setSelf',
-        'first' => 'setFirst',
-        'last' => 'setLast',
-        'next' => 'setNext',
-        'prev' => 'setPrev'
+        'links' => 'setLinks',
+        'embedded' => 'setEmbedded',
+        'page' => 'setPage',
+        'totalPages' => 'setTotalPages',
+        'totalItems' => 'setTotalItems'
     ];
 
     /**
@@ -204,11 +204,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'self' => 'getSelf',
-        'first' => 'getFirst',
-        'last' => 'getLast',
-        'next' => 'getNext',
-        'prev' => 'getPrev'
+        'links' => 'getLinks',
+        'embedded' => 'getEmbedded',
+        'page' => 'getPage',
+        'totalPages' => 'getTotalPages',
+        'totalItems' => 'getTotalItems'
     ];
 
     /**
@@ -268,11 +268,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('self', $data ?? [], null);
-        $this->setIfExists('first', $data ?? [], null);
-        $this->setIfExists('last', $data ?? [], null);
-        $this->setIfExists('next', $data ?? [], null);
-        $this->setIfExists('prev', $data ?? [], null);
+        $this->setIfExists('links', $data ?? [], null);
+        $this->setIfExists('embedded', $data ?? [], null);
+        $this->setIfExists('page', $data ?? [], null);
+        $this->setIfExists('totalPages', $data ?? [], null);
+        $this->setIfExists('totalItems', $data ?? [], null);
     }
 
     /**
@@ -318,136 +318,136 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets self
+     * Gets links
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks|null
      */
-    public function getSelf()
+    public function getLinks()
     {
-        return $this->container['self'];
+        return $this->container['links'];
     }
 
     /**
-     * Sets self
+     * Sets links
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $self self
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks|null $links links
      *
      * @return self
      */
-    public function setSelf($self)
+    public function setLinks($links)
     {
-        if (is_null($self)) {
-            throw new \InvalidArgumentException('non-nullable self cannot be null');
+        if (is_null($links)) {
+            throw new \InvalidArgumentException('non-nullable links cannot be null');
         }
-        $this->container['self'] = $self;
+        $this->container['links'] = $links;
 
         return $this;
     }
 
     /**
-     * Gets first
+     * Gets embedded
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderListAllOfEmbedded|null
      */
-    public function getFirst()
+    public function getEmbedded()
     {
-        return $this->container['first'];
+        return $this->container['embedded'];
     }
 
     /**
-     * Sets first
+     * Sets embedded
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $first first
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderListAllOfEmbedded|null $embedded embedded
      *
      * @return self
      */
-    public function setFirst($first)
+    public function setEmbedded($embedded)
     {
-        if (is_null($first)) {
-            throw new \InvalidArgumentException('non-nullable first cannot be null');
+        if (is_null($embedded)) {
+            throw new \InvalidArgumentException('non-nullable embedded cannot be null');
         }
-        $this->container['first'] = $first;
+        $this->container['embedded'] = $embedded;
 
         return $this;
     }
 
     /**
-     * Gets last
+     * Gets page
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
+     * @return int|null
      */
-    public function getLast()
+    public function getPage()
     {
-        return $this->container['last'];
+        return $this->container['page'];
     }
 
     /**
-     * Sets last
+     * Sets page
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $last last
+     * @param int|null $page page
      *
      * @return self
      */
-    public function setLast($last)
+    public function setPage($page)
     {
-        if (is_null($last)) {
-            throw new \InvalidArgumentException('non-nullable last cannot be null');
+        if (is_null($page)) {
+            throw new \InvalidArgumentException('non-nullable page cannot be null');
         }
-        $this->container['last'] = $last;
+        $this->container['page'] = $page;
 
         return $this;
     }
 
     /**
-     * Gets next
+     * Gets totalPages
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
+     * @return int|null
      */
-    public function getNext()
+    public function getTotalPages()
     {
-        return $this->container['next'];
+        return $this->container['totalPages'];
     }
 
     /**
-     * Sets next
+     * Sets totalPages
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $next next
+     * @param int|null $totalPages totalPages
      *
      * @return self
      */
-    public function setNext($next)
+    public function setTotalPages($totalPages)
     {
-        if (is_null($next)) {
-            throw new \InvalidArgumentException('non-nullable next cannot be null');
+        if (is_null($totalPages)) {
+            throw new \InvalidArgumentException('non-nullable totalPages cannot be null');
         }
-        $this->container['next'] = $next;
+        $this->container['totalPages'] = $totalPages;
 
         return $this;
     }
 
     /**
-     * Gets prev
+     * Gets totalItems
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
+     * @return int|null
      */
-    public function getPrev()
+    public function getTotalItems()
     {
-        return $this->container['prev'];
+        return $this->container['totalItems'];
     }
 
     /**
-     * Sets prev
+     * Sets totalItems
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $prev prev
+     * @param int|null $totalItems totalItems
      *
      * @return self
      */
-    public function setPrev($prev)
+    public function setTotalItems($totalItems)
     {
-        if (is_null($prev)) {
-            throw new \InvalidArgumentException('non-nullable prev cannot be null');
+        if (is_null($totalItems)) {
+            throw new \InvalidArgumentException('non-nullable totalItems cannot be null');
         }
-        $this->container['prev'] = $prev;
+        $this->container['totalItems'] = $totalItems;
 
         return $this;
     }

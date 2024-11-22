@@ -1,6 +1,6 @@
 <?php
 /**
- * PaginatedNodeListEmbedded
+ * PaginatedMenuItemList
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * PaginatedNodeListEmbedded Class Doc Comment
+ * PaginatedMenuItemList Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedMenuItemList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaginatedNodeList__embedded';
+    protected static $openAPIModelName = 'PaginatedMenuItemList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]'
+        'links' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks',
+        'embedded' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemListAllOfEmbedded',
+        'page' => 'int',
+        'totalPages' => 'int',
+        'totalItems' => 'int'
     ];
 
     /**
@@ -68,7 +72,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'items' => null
+        'links' => null,
+        'embedded' => null,
+        'page' => null,
+        'totalPages' => null,
+        'totalItems' => null
     ];
 
     /**
@@ -77,7 +85,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'items' => false
+        'links' => false,
+        'embedded' => false,
+        'page' => false,
+        'totalPages' => false,
+        'totalItems' => false
     ];
 
     /**
@@ -166,7 +178,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'
+        'links' => '_links',
+        'embedded' => '_embedded',
+        'page' => 'page',
+        'totalPages' => 'total_pages',
+        'totalItems' => 'total_items'
     ];
 
     /**
@@ -175,7 +191,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'
+        'links' => 'setLinks',
+        'embedded' => 'setEmbedded',
+        'page' => 'setPage',
+        'totalPages' => 'setTotalPages',
+        'totalItems' => 'setTotalItems'
     ];
 
     /**
@@ -184,7 +204,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'
+        'links' => 'getLinks',
+        'embedded' => 'getEmbedded',
+        'page' => 'getPage',
+        'totalPages' => 'getTotalPages',
+        'totalItems' => 'getTotalItems'
     ];
 
     /**
@@ -244,7 +268,11 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('links', $data ?? [], null);
+        $this->setIfExists('embedded', $data ?? [], null);
+        $this->setIfExists('page', $data ?? [], null);
+        $this->setIfExists('totalPages', $data ?? [], null);
+        $this->setIfExists('totalItems', $data ?? [], null);
     }
 
     /**
@@ -290,28 +318,136 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets items
+     * Gets links
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks|null
      */
-    public function getItems()
+    public function getLinks()
     {
-        return $this->container['items'];
+        return $this->container['links'];
     }
 
     /**
-     * Sets items
+     * Sets links
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null $items items
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks|null $links links
      *
      * @return self
      */
-    public function setItems($items)
+    public function setLinks($links)
     {
-        if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        if (is_null($links)) {
+            throw new \InvalidArgumentException('non-nullable links cannot be null');
         }
-        $this->container['items'] = $items;
+        $this->container['links'] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets embedded
+     *
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemListAllOfEmbedded|null
+     */
+    public function getEmbedded()
+    {
+        return $this->container['embedded'];
+    }
+
+    /**
+     * Sets embedded
+     *
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemListAllOfEmbedded|null $embedded embedded
+     *
+     * @return self
+     */
+    public function setEmbedded($embedded)
+    {
+        if (is_null($embedded)) {
+            throw new \InvalidArgumentException('non-nullable embedded cannot be null');
+        }
+        $this->container['embedded'] = $embedded;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return int|null
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int|null $page page
+     *
+     * @return self
+     */
+    public function setPage($page)
+    {
+        if (is_null($page)) {
+            throw new \InvalidArgumentException('non-nullable page cannot be null');
+        }
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalPages
+     *
+     * @return int|null
+     */
+    public function getTotalPages()
+    {
+        return $this->container['totalPages'];
+    }
+
+    /**
+     * Sets totalPages
+     *
+     * @param int|null $totalPages totalPages
+     *
+     * @return self
+     */
+    public function setTotalPages($totalPages)
+    {
+        if (is_null($totalPages)) {
+            throw new \InvalidArgumentException('non-nullable totalPages cannot be null');
+        }
+        $this->container['totalPages'] = $totalPages;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalItems
+     *
+     * @return int|null
+     */
+    public function getTotalItems()
+    {
+        return $this->container['totalItems'];
+    }
+
+    /**
+     * Sets totalItems
+     *
+     * @param int|null $totalItems totalItems
+     *
+     * @return self
+     */
+    public function setTotalItems($totalItems)
+    {
+        if (is_null($totalItems)) {
+            throw new \InvalidArgumentException('non-nullable totalItems cannot be null');
+        }
+        $this->container['totalItems'] = $totalItems;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PaginatedNodeListLinksSelfTest
+ * PaginatedMenuItemListAllOfEmbeddedTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PaginatedNodeListLinksSelfTest Class Doc Comment
+ * PaginatedMenuItemListAllOfEmbeddedTest Class Doc Comment
  *
  * @category    Class
- * @description PaginatedNodeListLinksSelf
+ * @description PaginatedMenuItemListAllOfEmbedded
  * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PaginatedNodeListLinksSelfTest extends TestCase
+class PaginatedMenuItemListAllOfEmbeddedTest extends TestCase
 {
 
     /**
@@ -71,18 +71,18 @@ class PaginatedNodeListLinksSelfTest extends TestCase
     }
 
     /**
-     * Test "PaginatedNodeListLinksSelf"
+     * Test "PaginatedMenuItemListAllOfEmbedded"
      */
-    public function testPaginatedNodeListLinksSelf()
+    public function testPaginatedMenuItemListAllOfEmbedded()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "href"
+     * Test attribute "items"
      */
-    public function testPropertyHref()
+    public function testPropertyItems()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

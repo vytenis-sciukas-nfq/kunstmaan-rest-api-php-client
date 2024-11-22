@@ -58,7 +58,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'pageparts' => 'ApiPagePart[]'
+        'pageparts' => '\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets pageparts
      *
-     * @return ApiPagePart[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]|null
      */
     public function getPageparts()
     {
@@ -336,7 +336,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pageparts
      *
-     * @param ApiPagePart[]|null $pageparts pageparts
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]|null $pageparts pageparts
      *
      * @return self
      */

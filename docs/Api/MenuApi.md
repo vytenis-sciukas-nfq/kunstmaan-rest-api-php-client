@@ -202,7 +202,7 @@ void (empty response body)
 ## `getMenuItems()`
 
 ```php
-getMenuItems($id, $page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList
+getMenuItems($id, $page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList
 ```
 
 Retrieve menu items paginated
@@ -250,7 +250,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItemList**](../Model/MenuItemList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuItemList**](../Model/PaginatedMenuItemList.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ try {
 ## `getMenus()`
 
 ```php
-getMenus($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\MenuList
+getMenus($page, $limit): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList
 ```
 
 Retrieve menu paginated
@@ -314,7 +314,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MenuList**](../Model/MenuList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMenuList**](../Model/PaginatedMenuList.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * MenuListTest
+ * PaginatedFolderListAllOfEmbeddedTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MenuListTest Class Doc Comment
+ * PaginatedFolderListAllOfEmbeddedTest Class Doc Comment
  *
  * @category    Class
- * @description MenuList
+ * @description PaginatedFolderListAllOfEmbedded
  * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MenuListTest extends TestCase
+class PaginatedFolderListAllOfEmbeddedTest extends TestCase
 {
 
     /**
@@ -71,18 +71,18 @@ class MenuListTest extends TestCase
     }
 
     /**
-     * Test "MenuList"
+     * Test "PaginatedFolderListAllOfEmbedded"
      */
-    public function testMenuList()
+    public function testPaginatedFolderListAllOfEmbedded()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "menus"
+     * Test attribute "items"
      */
-    public function testPropertyMenus()
+    public function testPropertyItems()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

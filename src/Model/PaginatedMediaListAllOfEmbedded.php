@@ -1,6 +1,6 @@
 <?php
 /**
- * FolderList
+ * PaginatedMediaListAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * FolderList Class Doc Comment
+ * PaginatedMediaListAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedMediaListAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FolderList';
+    protected static $openAPIModelName = 'PaginatedMediaList_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'folder' => 'Folder[]'
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\Media[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'folder' => null
+        'items' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'folder' => false
+        'items' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'folder' => 'folder'
+        'items' => 'items'
     ];
 
     /**
@@ -175,7 +175,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'folder' => 'setFolder'
+        'items' => 'setItems'
     ];
 
     /**
@@ -184,7 +184,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'folder' => 'getFolder'
+        'items' => 'getItems'
     ];
 
     /**
@@ -244,7 +244,7 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('folder', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -290,28 +290,28 @@ class FolderList implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets folder
+     * Gets items
      *
-     * @return Folder[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\Media[]|null
      */
-    public function getFolder()
+    public function getItems()
     {
-        return $this->container['folder'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets folder
+     * Sets items
      *
-     * @param Folder[]|null $folder folder
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\Media[]|null $items items
      *
      * @return self
      */
-    public function setFolder($folder)
+    public function setItems($items)
     {
-        if (is_null($folder)) {
-            throw new \InvalidArgumentException('non-nullable folder cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['folder'] = $folder;
+        $this->container['items'] = $items;
 
         return $this;
     }

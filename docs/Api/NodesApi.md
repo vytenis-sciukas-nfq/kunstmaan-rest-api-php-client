@@ -203,7 +203,7 @@ try {
 ## `getNodes()`
 
 ```php
-getNodes($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName): \NFQ\KunstmaanRestApi\PhpClient\Model\NodeList
+getNodes($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList
 ```
 
 Retrieve nodes paginated
@@ -257,7 +257,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\NodeList**](../Model/NodeList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList**](../Model/PaginatedNodeList.md)
 
 ### Authorization
 

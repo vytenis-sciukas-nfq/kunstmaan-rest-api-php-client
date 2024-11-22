@@ -1,6 +1,6 @@
 <?php
 /**
- * FormSubmissionList
+ * PaginatedMenuItemListAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * FormSubmissionList Class Doc Comment
+ * PaginatedMenuItemListAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedMenuItemListAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FormSubmissionList';
+    protected static $openAPIModelName = 'PaginatedMenuItemList_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'submissions' => 'FormSubmission[]'
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\MenuItem[]'
     ];
 
     /**
@@ -68,7 +68,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'submissions' => null
+        'items' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'submissions' => false
+        'items' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'submissions' => 'submissions'
+        'items' => 'items'
     ];
 
     /**
@@ -175,7 +175,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'submissions' => 'setSubmissions'
+        'items' => 'setItems'
     ];
 
     /**
@@ -184,7 +184,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'submissions' => 'getSubmissions'
+        'items' => 'getItems'
     ];
 
     /**
@@ -244,7 +244,7 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('submissions', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -274,9 +274,6 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['submissions'] === null) {
-            $invalidProperties[] = "'submissions' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -293,28 +290,28 @@ class FormSubmissionList implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets submissions
+     * Gets items
      *
-     * @return FormSubmission[]
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItem[]|null
      */
-    public function getSubmissions()
+    public function getItems()
     {
-        return $this->container['submissions'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets submissions
+     * Sets items
      *
-     * @param FormSubmission[] $submissions submissions
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\MenuItem[]|null $items items
      *
      * @return self
      */
-    public function setSubmissions($submissions)
+    public function setItems($items)
     {
-        if (is_null($submissions)) {
-            throw new \InvalidArgumentException('non-nullable submissions cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['submissions'] = $submissions;
+        $this->container['items'] = $items;
 
         return $this;
     }

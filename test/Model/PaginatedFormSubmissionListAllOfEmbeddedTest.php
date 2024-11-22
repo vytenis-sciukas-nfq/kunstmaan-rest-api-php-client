@@ -1,6 +1,6 @@
 <?php
 /**
- * NodeListTest
+ * PaginatedFormSubmissionListAllOfEmbeddedTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * NodeListTest Class Doc Comment
+ * PaginatedFormSubmissionListAllOfEmbeddedTest Class Doc Comment
  *
  * @category    Class
- * @description NodeList
+ * @description PaginatedFormSubmissionListAllOfEmbedded
  * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class NodeListTest extends TestCase
+class PaginatedFormSubmissionListAllOfEmbeddedTest extends TestCase
 {
 
     /**
@@ -71,9 +71,18 @@ class NodeListTest extends TestCase
     }
 
     /**
-     * Test "NodeList"
+     * Test "PaginatedFormSubmissionListAllOfEmbedded"
      */
-    public function testNodeList()
+    public function testPaginatedFormSubmissionListAllOfEmbedded()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "items"
+     */
+    public function testPropertyItems()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

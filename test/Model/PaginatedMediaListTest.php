@@ -1,6 +1,6 @@
 <?php
 /**
- * MenuItemListTest
+ * PaginatedMediaListTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MenuItemListTest Class Doc Comment
+ * PaginatedMediaListTest Class Doc Comment
  *
  * @category    Class
- * @description MenuItemList
+ * @description PaginatedMediaList
  * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MenuItemListTest extends TestCase
+class PaginatedMediaListTest extends TestCase
 {
 
     /**
@@ -71,18 +71,54 @@ class MenuItemListTest extends TestCase
     }
 
     /**
-     * Test "MenuItemList"
+     * Test "PaginatedMediaList"
      */
-    public function testMenuItemList()
+    public function testPaginatedMediaList()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "menuItems"
+     * Test attribute "links"
      */
-    public function testPropertyMenuItems()
+    public function testPropertyLinks()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "embedded"
+     */
+    public function testPropertyEmbedded()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "page"
+     */
+    public function testPropertyPage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "totalPages"
+     */
+    public function testPropertyTotalPages()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "totalItems"
+     */
+    public function testPropertyTotalItems()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

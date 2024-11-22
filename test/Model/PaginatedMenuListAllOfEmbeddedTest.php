@@ -1,6 +1,6 @@
 <?php
 /**
- * PaginatedNodeListLinksTest
+ * PaginatedMenuListAllOfEmbeddedTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace NFQ\KunstmaanRestApi\PhpClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PaginatedNodeListLinksTest Class Doc Comment
+ * PaginatedMenuListAllOfEmbeddedTest Class Doc Comment
  *
  * @category    Class
- * @description PaginatedNodeListLinks
+ * @description PaginatedMenuListAllOfEmbedded
  * @package     NFQ\KunstmaanRestApi\PhpClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PaginatedNodeListLinksTest extends TestCase
+class PaginatedMenuListAllOfEmbeddedTest extends TestCase
 {
 
     /**
@@ -71,54 +71,18 @@ class PaginatedNodeListLinksTest extends TestCase
     }
 
     /**
-     * Test "PaginatedNodeListLinks"
+     * Test "PaginatedMenuListAllOfEmbedded"
      */
-    public function testPaginatedNodeListLinks()
+    public function testPaginatedMenuListAllOfEmbedded()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "self"
+     * Test attribute "items"
      */
-    public function testPropertySelf()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "first"
-     */
-    public function testPropertyFirst()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "last"
-     */
-    public function testPropertyLast()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "next"
-     */
-    public function testPropertyNext()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "prev"
-     */
-    public function testPropertyPrev()
+    public function testPropertyItems()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

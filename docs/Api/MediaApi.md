@@ -141,7 +141,7 @@ void (empty response body)
 ## `getFolder()`
 
 ```php
-getFolder($page, $limit, $name): \NFQ\KunstmaanRestApi\PhpClient\Model\FolderList
+getFolder($page, $limit, $name): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList
 ```
 
 Retrieve folders paginated
@@ -189,7 +189,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\FolderList**](../Model/FolderList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedFolderList**](../Model/PaginatedFolderList.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ try {
 ## `getMedia()`
 
 ```php
-getMedia($page, $limit, $name, $folderId): \NFQ\KunstmaanRestApi\PhpClient\Model\MediaList
+getMedia($page, $limit, $name, $folderId): \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList
 ```
 
 Retrieve media paginated
@@ -257,7 +257,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\MediaList**](../Model/MediaList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedMediaList**](../Model/PaginatedMediaList.md)
 
 ### Authorization
 
