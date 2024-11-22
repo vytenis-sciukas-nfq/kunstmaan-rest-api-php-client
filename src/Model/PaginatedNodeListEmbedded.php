@@ -57,7 +57,7 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => 'GetNode[]'
+        'items' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets items
      *
-     * @return GetNode[]|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null
      */
     public function getItems()
     {
@@ -302,7 +302,7 @@ class PaginatedNodeListEmbedded implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets items
      *
-     * @param GetNode[]|null $items items
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null $items items
      *
      * @return self
      */
