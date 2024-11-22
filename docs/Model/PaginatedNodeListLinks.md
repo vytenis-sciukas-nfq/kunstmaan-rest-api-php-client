@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**self** | **string** |  | [optional]
-**first** | **string** |  | [optional]
-**last** | **string** |  | [optional]
-**next** | **string** |  | [optional]
-**prev** | **string** |  | [optional]
+**self** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf**](PaginatedNodeListLinksSelf.md) |  | [optional]
+**first** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf**](PaginatedNodeListLinksSelf.md) |  | [optional]
+**last** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf**](PaginatedNodeListLinksSelf.md) |  | [optional]
+**next** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf**](PaginatedNodeListLinksSelf.md) |  | [optional]
+**prev** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf**](PaginatedNodeListLinksSelf.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

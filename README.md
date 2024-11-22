@@ -150,6 +150,7 @@ Class | Method | HTTP request | Description
 - [PaginatedNodeList](docs/Model/PaginatedNodeList.md)
 - [PaginatedNodeListEmbedded](docs/Model/PaginatedNodeListEmbedded.md)
 - [PaginatedNodeListLinks](docs/Model/PaginatedNodeListLinks.md)
+- [PaginatedNodeListLinksSelf](docs/Model/PaginatedNodeListLinksSelf.md)
 - [PostApiPage](docs/Model/PostApiPage.md)
 - [PostFolder](docs/Model/PostFolder.md)
 - [PostMenu](docs/Model/PostMenu.md)

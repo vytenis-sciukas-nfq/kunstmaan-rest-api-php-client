@@ -57,11 +57,11 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'self' => 'string',
-        'first' => 'string',
-        'last' => 'string',
-        'next' => 'string',
-        'prev' => 'string'
+        'self' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
+        'first' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
+        'last' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
+        'next' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf',
+        'prev' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf'
     ];
 
     /**
@@ -320,7 +320,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets self
      *
-     * @return string|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
      */
     public function getSelf()
     {
@@ -330,7 +330,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets self
      *
-     * @param string|null $self self
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $self self
      *
      * @return self
      */
@@ -347,7 +347,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets first
      *
-     * @return string|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
      */
     public function getFirst()
     {
@@ -357,7 +357,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets first
      *
-     * @param string|null $first first
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $first first
      *
      * @return self
      */
@@ -374,7 +374,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets last
      *
-     * @return string|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
      */
     public function getLast()
     {
@@ -384,7 +384,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets last
      *
-     * @param string|null $last last
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $last last
      *
      * @return self
      */
@@ -401,7 +401,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets next
      *
-     * @return string|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
      */
     public function getNext()
     {
@@ -411,7 +411,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets next
      *
-     * @param string|null $next next
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $next next
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets prev
      *
-     * @return string|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null
      */
     public function getPrev()
     {
@@ -438,7 +438,7 @@ class PaginatedNodeListLinks implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets prev
      *
-     * @param string|null $prev prev
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListLinksSelf|null $prev prev
      *
      * @return self
      */

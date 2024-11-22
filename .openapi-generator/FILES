@@ -42,6 +42,7 @@ docs/Model/NodeVersion.md
 docs/Model/PaginatedNodeList.md
 docs/Model/PaginatedNodeListEmbedded.md
 docs/Model/PaginatedNodeListLinks.md
+docs/Model/PaginatedNodeListLinksSelf.md
 docs/Model/PostApiPage.md
 docs/Model/PostFolder.md
 docs/Model/PostMenu.md
@@ -94,6 +95,7 @@ src/Model/NodeVersion.php
 src/Model/PaginatedNodeList.php
 src/Model/PaginatedNodeListEmbedded.php
 src/Model/PaginatedNodeListLinks.php
+src/Model/PaginatedNodeListLinksSelf.php
 src/Model/PostApiPage.php
 src/Model/PostFolder.php
 src/Model/PostMenu.php
@@ -157,6 +159,7 @@ test/Model/NodeTest.php
 test/Model/NodeTranslationTest.php
 test/Model/NodeVersionTest.php
 test/Model/PaginatedNodeListEmbeddedTest.php
+test/Model/PaginatedNodeListLinksSelfTest.php
 test/Model/PaginatedNodeListLinksTest.php
 test/Model/PaginatedNodeListTest.php
 test/Model/PostApiPageTest.php
