@@ -1,11 +1,11 @@
 <?php
 /**
- * GetNode
+ * PostTranslations
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,21 +26,21 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * GetNode Class Doc Comment
+ * PostTranslations Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
+class PostTranslations implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetNode';
+    protected static $openAPIModelName = 'postTranslations';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,16 +57,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'hidden_from_nav' => 'bool',
-        'ref_entity_name' => 'string',
-        'internal_name' => 'string',
-        'slug' => 'string',
-        'url' => 'string',
-        'lft' => 'int',
-        'rgt' => 'int',
-        'lvl' => 'int',
-        'parent' => 'object'
+        
     ];
 
     /**
@@ -77,16 +68,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'hidden_from_nav' => null,
-        'ref_entity_name' => null,
-        'internal_name' => null,
-        'slug' => null,
-        'url' => null,
-        'lft' => null,
-        'rgt' => null,
-        'lvl' => null,
-        'parent' => null
+        
     ];
 
     /**
@@ -95,16 +77,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'hidden_from_nav' => false,
-        'ref_entity_name' => false,
-        'internal_name' => false,
-        'slug' => false,
-        'url' => false,
-        'lft' => false,
-        'rgt' => false,
-        'lvl' => false,
-        'parent' => false
+        
     ];
 
     /**
@@ -193,16 +166,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'hidden_from_nav' => 'hidden_from_nav',
-        'ref_entity_name' => 'ref_entity_name',
-        'internal_name' => 'internal_name',
-        'slug' => 'slug',
-        'url' => 'url',
-        'lft' => 'lft',
-        'rgt' => 'rgt',
-        'lvl' => 'lvl',
-        'parent' => 'parent'
+        
     ];
 
     /**
@@ -211,16 +175,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'hidden_from_nav' => 'setHiddenFromNav',
-        'ref_entity_name' => 'setRefEntityName',
-        'internal_name' => 'setInternalName',
-        'slug' => 'setSlug',
-        'url' => 'setUrl',
-        'lft' => 'setLft',
-        'rgt' => 'setRgt',
-        'lvl' => 'setLvl',
-        'parent' => 'setParent'
+        
     ];
 
     /**
@@ -229,16 +184,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'hidden_from_nav' => 'getHiddenFromNav',
-        'ref_entity_name' => 'getRefEntityName',
-        'internal_name' => 'getInternalName',
-        'slug' => 'getSlug',
-        'url' => 'getUrl',
-        'lft' => 'getLft',
-        'rgt' => 'getRgt',
-        'lvl' => 'getLvl',
-        'parent' => 'getParent'
+        
     ];
 
     /**
@@ -298,16 +244,6 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('hidden_from_nav', $data ?? [], null);
-        $this->setIfExists('ref_entity_name', $data ?? [], null);
-        $this->setIfExists('internal_name', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('lft', $data ?? [], null);
-        $this->setIfExists('rgt', $data ?? [], null);
-        $this->setIfExists('lvl', $data ?? [], null);
-        $this->setIfExists('parent', $data ?? [], null);
     }
 
     /**
@@ -351,276 +287,6 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets hidden_from_nav
-     *
-     * @return bool|null
-     */
-    public function getHiddenFromNav()
-    {
-        return $this->container['hidden_from_nav'];
-    }
-
-    /**
-     * Sets hidden_from_nav
-     *
-     * @param bool|null $hidden_from_nav hidden_from_nav
-     *
-     * @return self
-     */
-    public function setHiddenFromNav($hidden_from_nav)
-    {
-        if (is_null($hidden_from_nav)) {
-            throw new \InvalidArgumentException('non-nullable hidden_from_nav cannot be null');
-        }
-        $this->container['hidden_from_nav'] = $hidden_from_nav;
-
-        return $this;
-    }
-
-    /**
-     * Gets ref_entity_name
-     *
-     * @return string|null
-     */
-    public function getRefEntityName()
-    {
-        return $this->container['ref_entity_name'];
-    }
-
-    /**
-     * Sets ref_entity_name
-     *
-     * @param string|null $ref_entity_name ref_entity_name
-     *
-     * @return self
-     */
-    public function setRefEntityName($ref_entity_name)
-    {
-        if (is_null($ref_entity_name)) {
-            throw new \InvalidArgumentException('non-nullable ref_entity_name cannot be null');
-        }
-        $this->container['ref_entity_name'] = $ref_entity_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets internal_name
-     *
-     * @return string|null
-     */
-    public function getInternalName()
-    {
-        return $this->container['internal_name'];
-    }
-
-    /**
-     * Sets internal_name
-     *
-     * @param string|null $internal_name internal_name
-     *
-     * @return self
-     */
-    public function setInternalName($internal_name)
-    {
-        if (is_null($internal_name)) {
-            throw new \InvalidArgumentException('non-nullable internal_name cannot be null');
-        }
-        $this->container['internal_name'] = $internal_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
-        }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets lft
-     *
-     * @return int|null
-     */
-    public function getLft()
-    {
-        return $this->container['lft'];
-    }
-
-    /**
-     * Sets lft
-     *
-     * @param int|null $lft lft
-     *
-     * @return self
-     */
-    public function setLft($lft)
-    {
-        if (is_null($lft)) {
-            throw new \InvalidArgumentException('non-nullable lft cannot be null');
-        }
-        $this->container['lft'] = $lft;
-
-        return $this;
-    }
-
-    /**
-     * Gets rgt
-     *
-     * @return int|null
-     */
-    public function getRgt()
-    {
-        return $this->container['rgt'];
-    }
-
-    /**
-     * Sets rgt
-     *
-     * @param int|null $rgt rgt
-     *
-     * @return self
-     */
-    public function setRgt($rgt)
-    {
-        if (is_null($rgt)) {
-            throw new \InvalidArgumentException('non-nullable rgt cannot be null');
-        }
-        $this->container['rgt'] = $rgt;
-
-        return $this;
-    }
-
-    /**
-     * Gets lvl
-     *
-     * @return int|null
-     */
-    public function getLvl()
-    {
-        return $this->container['lvl'];
-    }
-
-    /**
-     * Sets lvl
-     *
-     * @param int|null $lvl lvl
-     *
-     * @return self
-     */
-    public function setLvl($lvl)
-    {
-        if (is_null($lvl)) {
-            throw new \InvalidArgumentException('non-nullable lvl cannot be null');
-        }
-        $this->container['lvl'] = $lvl;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent
-     *
-     * @return object|null
-     */
-    public function getParent()
-    {
-        return $this->container['parent'];
-    }
-
-    /**
-     * Sets parent
-     *
-     * @param object|null $parent parent
-     *
-     * @return self
-     */
-    public function setParent($parent)
-    {
-        if (is_null($parent)) {
-            throw new \InvalidArgumentException('non-nullable parent cannot be null');
-        }
-        $this->container['parent'] = $parent;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

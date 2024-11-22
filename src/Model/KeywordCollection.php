@@ -1,11 +1,11 @@
 <?php
 /**
- * PostFolder
+ * KeywordCollection
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,21 +26,21 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * PostFolder Class Doc Comment
+ * KeywordCollection Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
+class KeywordCollection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PostFolder';
+    protected static $openAPIModelName = 'keywordCollection';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'internal_name' => 'string',
-        'rel' => 'string'
+        
     ];
 
     /**
@@ -70,9 +68,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'internal_name' => null,
-        'rel' => null
+        
     ];
 
     /**
@@ -81,9 +77,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'internal_name' => false,
-        'rel' => false
+        
     ];
 
     /**
@@ -172,9 +166,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'internal_name' => 'internalName',
-        'rel' => 'rel'
+        
     ];
 
     /**
@@ -183,9 +175,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'internal_name' => 'setInternalName',
-        'rel' => 'setRel'
+        
     ];
 
     /**
@@ -194,9 +184,7 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'internal_name' => 'getInternalName',
-        'rel' => 'getRel'
+        
     ];
 
     /**
@@ -256,9 +244,6 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('internal_name', $data ?? [], null);
-        $this->setIfExists('rel', $data ?? [], null);
     }
 
     /**
@@ -302,87 +287,6 @@ class PostFolder implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets internal_name
-     *
-     * @return string|null
-     */
-    public function getInternalName()
-    {
-        return $this->container['internal_name'];
-    }
-
-    /**
-     * Sets internal_name
-     *
-     * @param string|null $internal_name internal_name
-     *
-     * @return self
-     */
-    public function setInternalName($internal_name)
-    {
-        if (is_null($internal_name)) {
-            throw new \InvalidArgumentException('non-nullable internal_name cannot be null');
-        }
-        $this->container['internal_name'] = $internal_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rel
-     *
-     * @return string|null
-     */
-    public function getRel()
-    {
-        return $this->container['rel'];
-    }
-
-    /**
-     * Sets rel
-     *
-     * @param string|null $rel rel
-     *
-     * @return self
-     */
-    public function setRel($rel)
-    {
-        if (is_null($rel)) {
-            throw new \InvalidArgumentException('non-nullable rel cannot be null');
-        }
-        $this->container['rel'] = $rel;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -1,11 +1,11 @@
 <?php
 /**
- * MediaList
+ * ListTranslation
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,21 +26,21 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * MediaList Class Doc Comment
+ * ListTranslation Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListTranslation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MediaList';
+    protected static $openAPIModelName = 'listTranslation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'media' => 'Media[]'
+        
     ];
 
     /**
@@ -68,7 +68,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'media' => null
+        
     ];
 
     /**
@@ -77,7 +77,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'media' => false
+        
     ];
 
     /**
@@ -166,7 +166,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'media' => 'media'
+        
     ];
 
     /**
@@ -175,7 +175,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'media' => 'setMedia'
+        
     ];
 
     /**
@@ -184,7 +184,7 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'media' => 'getMedia'
+        
     ];
 
     /**
@@ -244,7 +244,6 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('media', $data ?? [], null);
     }
 
     /**
@@ -288,33 +287,6 @@ class MediaList implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets media
-     *
-     * @return Media[]|null
-     */
-    public function getMedia()
-    {
-        return $this->container['media'];
-    }
-
-    /**
-     * Sets media
-     *
-     * @param Media[]|null $media media
-     *
-     * @return self
-     */
-    public function setMedia($media)
-    {
-        if (is_null($media)) {
-            throw new \InvalidArgumentException('non-nullable media cannot be null');
-        }
-        $this->container['media'] = $media;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

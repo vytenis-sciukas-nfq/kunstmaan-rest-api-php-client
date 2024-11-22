@@ -1,14 +1,16 @@
 {
   "artifactId": "MyClient",
   "artifactVersion": "1.0.0",
-  "apiPackage": "RestApi",
   "composerPackageName" : "nfq/kunstmaan-rest-api-php-client",
   "invokerPackage": "NFQ\\KunstmaanRestApi\\PhpClient",
+  "modelPackage": "Model",
+  "apiPackage": "RestApi",
   "developerOrganization": "NFQ",
   "packageName": "NFQ KunstmaanRestApi PhpClient",
   "variableNamingConvention": "camelCase",
   "sortParamsByRequiredFlag": true,
   "prependFormOrBodyParameters": false,
   "useOptional": true,
-  "srcBasePath": "src"
+  "srcBasePath": "src",
+  "generateAliasAsModel": true
 }

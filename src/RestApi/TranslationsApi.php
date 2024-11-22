@@ -144,17 +144,17 @@ class TranslationsApi
      * Operation createTranslation
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  PostTranslation[] $postTranslation The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations $postTranslations The posted translations (required)
      * @param  string $force Force&#x3D;true will overwrite existing translations, otherwise will be skipped (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function createTranslation($domain, $postTranslation, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
+    public function createTranslation($domain, $postTranslations, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
-        list($response) = $this->createTranslationWithHttpInfo($domain, $postTranslation, $force, $contentType);
+        list($response) = $this->createTranslationWithHttpInfo($domain, $postTranslations, $force, $contentType);
         return $response;
     }
 
@@ -162,17 +162,17 @@ class TranslationsApi
      * Operation createTranslationWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  PostTranslation[] $postTranslation The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations $postTranslations The posted translations (required)
      * @param  string $force Force&#x3D;true will overwrite existing translations, otherwise will be skipped (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTranslationWithHttpInfo($domain, $postTranslation, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
+    public function createTranslationWithHttpInfo($domain, $postTranslations, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
-        $request = $this->createTranslationRequest($domain, $postTranslation, $force, $contentType);
+        $request = $this->createTranslationRequest($domain, $postTranslations, $force, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -199,11 +199,11 @@ class TranslationsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('SingleTranslation[]' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('SingleTranslation[]' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -221,7 +221,7 @@ class TranslationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'SingleTranslation[]', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -294,7 +294,7 @@ class TranslationsApi
                 );
             }
 
-            $returnType = 'SingleTranslation[]';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -327,7 +327,7 @@ class TranslationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'SingleTranslation[]',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -357,16 +357,16 @@ class TranslationsApi
      * Operation createTranslationAsync
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  PostTranslation[] $postTranslation The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations $postTranslations The posted translations (required)
      * @param  string $force Force&#x3D;true will overwrite existing translations, otherwise will be skipped (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTranslationAsync($domain, $postTranslation, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
+    public function createTranslationAsync($domain, $postTranslations, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
-        return $this->createTranslationAsyncWithHttpInfo($domain, $postTranslation, $force, $contentType)
+        return $this->createTranslationAsyncWithHttpInfo($domain, $postTranslations, $force, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -378,17 +378,17 @@ class TranslationsApi
      * Operation createTranslationAsyncWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  PostTranslation[] $postTranslation The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations $postTranslations The posted translations (required)
      * @param  string $force Force&#x3D;true will overwrite existing translations, otherwise will be skipped (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTranslationAsyncWithHttpInfo($domain, $postTranslation, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
+    public function createTranslationAsyncWithHttpInfo($domain, $postTranslations, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
-        $returnType = 'SingleTranslation[]';
-        $request = $this->createTranslationRequest($domain, $postTranslation, $force, $contentType);
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
+        $request = $this->createTranslationRequest($domain, $postTranslations, $force, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -430,14 +430,14 @@ class TranslationsApi
      * Create request for operation 'createTranslation'
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  PostTranslation[] $postTranslation The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations $postTranslations The posted translations (required)
      * @param  string $force Force&#x3D;true will overwrite existing translations, otherwise will be skipped (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTranslationRequest($domain, $postTranslation, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
+    public function createTranslationRequest($domain, $postTranslations, $force = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -447,10 +447,10 @@ class TranslationsApi
             );
         }
 
-        // verify the required parameter 'postTranslation' is set
-        if ($postTranslation === null || (is_array($postTranslation) && count($postTranslation) === 0)) {
+        // verify the required parameter 'postTranslations' is set
+        if ($postTranslations === null || (is_array($postTranslations) && count($postTranslations) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $postTranslation when calling createTranslation'
+                'Missing the required parameter $postTranslations when calling createTranslation'
             );
         }
 
@@ -491,12 +491,12 @@ class TranslationsApi
         );
 
         // for model (json/xml)
-        if (isset($postTranslation)) {
+        if (isset($postTranslations)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postTranslation));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($postTranslations));
             } else {
-                $httpBody = $postTranslation;
+                $httpBody = $postTranslations;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -553,32 +553,32 @@ class TranslationsApi
      * Operation deprecateTranslation
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deprecateTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deprecateTranslation($domain, $deprecateKeyword, string $contentType = self::contentTypes['deprecateTranslation'][0])
+    public function deprecateTranslation($domain, $keywordCollection, string $contentType = self::contentTypes['deprecateTranslation'][0])
     {
-        $this->deprecateTranslationWithHttpInfo($domain, $deprecateKeyword, $contentType);
+        $this->deprecateTranslationWithHttpInfo($domain, $keywordCollection, $contentType);
     }
 
     /**
      * Operation deprecateTranslationWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deprecateTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deprecateTranslationWithHttpInfo($domain, $deprecateKeyword, string $contentType = self::contentTypes['deprecateTranslation'][0])
+    public function deprecateTranslationWithHttpInfo($domain, $keywordCollection, string $contentType = self::contentTypes['deprecateTranslation'][0])
     {
-        $request = $this->deprecateTranslationRequest($domain, $deprecateKeyword, $contentType);
+        $request = $this->deprecateTranslationRequest($domain, $keywordCollection, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -624,15 +624,15 @@ class TranslationsApi
      * Operation deprecateTranslationAsync
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deprecateTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deprecateTranslationAsync($domain, $deprecateKeyword, string $contentType = self::contentTypes['deprecateTranslation'][0])
+    public function deprecateTranslationAsync($domain, $keywordCollection, string $contentType = self::contentTypes['deprecateTranslation'][0])
     {
-        return $this->deprecateTranslationAsyncWithHttpInfo($domain, $deprecateKeyword, $contentType)
+        return $this->deprecateTranslationAsyncWithHttpInfo($domain, $keywordCollection, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -644,16 +644,16 @@ class TranslationsApi
      * Operation deprecateTranslationAsyncWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deprecateTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deprecateTranslationAsyncWithHttpInfo($domain, $deprecateKeyword, string $contentType = self::contentTypes['deprecateTranslation'][0])
+    public function deprecateTranslationAsyncWithHttpInfo($domain, $keywordCollection, string $contentType = self::contentTypes['deprecateTranslation'][0])
     {
         $returnType = '';
-        $request = $this->deprecateTranslationRequest($domain, $deprecateKeyword, $contentType);
+        $request = $this->deprecateTranslationRequest($domain, $keywordCollection, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -682,13 +682,13 @@ class TranslationsApi
      * Create request for operation 'deprecateTranslation'
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deprecateTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deprecateTranslationRequest($domain, $deprecateKeyword, string $contentType = self::contentTypes['deprecateTranslation'][0])
+    public function deprecateTranslationRequest($domain, $keywordCollection, string $contentType = self::contentTypes['deprecateTranslation'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -698,10 +698,10 @@ class TranslationsApi
             );
         }
 
-        // verify the required parameter 'deprecateKeyword' is set
-        if ($deprecateKeyword === null || (is_array($deprecateKeyword) && count($deprecateKeyword) === 0)) {
+        // verify the required parameter 'keywordCollection' is set
+        if ($keywordCollection === null || (is_array($keywordCollection) && count($keywordCollection) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $deprecateKeyword when calling deprecateTranslation'
+                'Missing the required parameter $keywordCollection when calling deprecateTranslation'
             );
         }
 
@@ -732,12 +732,12 @@ class TranslationsApi
         );
 
         // for model (json/xml)
-        if (isset($deprecateKeyword)) {
+        if (isset($keywordCollection)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deprecateKeyword));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($keywordCollection));
             } else {
-                $httpBody = $deprecateKeyword;
+                $httpBody = $keywordCollection;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1035,32 +1035,32 @@ class TranslationsApi
      * Operation enableTranslation
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function enableTranslation($domain, $deprecateKeyword, string $contentType = self::contentTypes['enableTranslation'][0])
+    public function enableTranslation($domain, $keywordCollection, string $contentType = self::contentTypes['enableTranslation'][0])
     {
-        $this->enableTranslationWithHttpInfo($domain, $deprecateKeyword, $contentType);
+        $this->enableTranslationWithHttpInfo($domain, $keywordCollection, $contentType);
     }
 
     /**
      * Operation enableTranslationWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableTranslation'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function enableTranslationWithHttpInfo($domain, $deprecateKeyword, string $contentType = self::contentTypes['enableTranslation'][0])
+    public function enableTranslationWithHttpInfo($domain, $keywordCollection, string $contentType = self::contentTypes['enableTranslation'][0])
     {
-        $request = $this->enableTranslationRequest($domain, $deprecateKeyword, $contentType);
+        $request = $this->enableTranslationRequest($domain, $keywordCollection, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1106,15 +1106,15 @@ class TranslationsApi
      * Operation enableTranslationAsync
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enableTranslationAsync($domain, $deprecateKeyword, string $contentType = self::contentTypes['enableTranslation'][0])
+    public function enableTranslationAsync($domain, $keywordCollection, string $contentType = self::contentTypes['enableTranslation'][0])
     {
-        return $this->enableTranslationAsyncWithHttpInfo($domain, $deprecateKeyword, $contentType)
+        return $this->enableTranslationAsyncWithHttpInfo($domain, $keywordCollection, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1126,16 +1126,16 @@ class TranslationsApi
      * Operation enableTranslationAsyncWithHttpInfo
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enableTranslationAsyncWithHttpInfo($domain, $deprecateKeyword, string $contentType = self::contentTypes['enableTranslation'][0])
+    public function enableTranslationAsyncWithHttpInfo($domain, $keywordCollection, string $contentType = self::contentTypes['enableTranslation'][0])
     {
         $returnType = '';
-        $request = $this->enableTranslationRequest($domain, $deprecateKeyword, $contentType);
+        $request = $this->enableTranslationRequest($domain, $keywordCollection, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1164,13 +1164,13 @@ class TranslationsApi
      * Create request for operation 'enableTranslation'
      *
      * @param  string $domain the domain of the languages you want (required)
-     * @param  DeprecateKeyword[] $deprecateKeyword The posted translations (required)
+     * @param  \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection $keywordCollection The posted translations (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableTranslation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function enableTranslationRequest($domain, $deprecateKeyword, string $contentType = self::contentTypes['enableTranslation'][0])
+    public function enableTranslationRequest($domain, $keywordCollection, string $contentType = self::contentTypes['enableTranslation'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -1180,10 +1180,10 @@ class TranslationsApi
             );
         }
 
-        // verify the required parameter 'deprecateKeyword' is set
-        if ($deprecateKeyword === null || (is_array($deprecateKeyword) && count($deprecateKeyword) === 0)) {
+        // verify the required parameter 'keywordCollection' is set
+        if ($keywordCollection === null || (is_array($keywordCollection) && count($keywordCollection) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $deprecateKeyword when calling enableTranslation'
+                'Missing the required parameter $keywordCollection when calling enableTranslation'
             );
         }
 
@@ -1214,12 +1214,12 @@ class TranslationsApi
         );
 
         // for model (json/xml)
-        if (isset($deprecateKeyword)) {
+        if (isset($keywordCollection)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deprecateKeyword));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($keywordCollection));
             } else {
-                $httpBody = $deprecateKeyword;
+                $httpBody = $keywordCollection;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1655,7 +1655,7 @@ class TranslationsApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getTranslations($locale = null, string $contentType = self::contentTypes['getTranslations'][0])
     {
@@ -1671,7 +1671,7 @@ class TranslationsApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTranslationsWithHttpInfo($locale = null, string $contentType = self::contentTypes['getTranslations'][0])
     {
@@ -1702,11 +1702,11 @@ class TranslationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('SingleTranslation[]' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('SingleTranslation[]' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1724,7 +1724,7 @@ class TranslationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'SingleTranslation[]', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1770,7 +1770,7 @@ class TranslationsApi
                 );
             }
 
-            $returnType = 'SingleTranslation[]';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1803,7 +1803,7 @@ class TranslationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'SingleTranslation[]',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1851,7 +1851,7 @@ class TranslationsApi
      */
     public function getTranslationsAsyncWithHttpInfo($locale = null, string $contentType = self::contentTypes['getTranslations'][0])
     {
-        $returnType = 'SingleTranslation[]';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
         $request = $this->getTranslationsRequest($locale, $contentType);
 
         return $this->client
@@ -1991,7 +1991,7 @@ class TranslationsApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getTranslationsByDomain($domain, $locale = null, string $contentType = self::contentTypes['getTranslationsByDomain'][0])
     {
@@ -2008,7 +2008,7 @@ class TranslationsApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of SingleTranslation[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTranslationsByDomainWithHttpInfo($domain, $locale = null, string $contentType = self::contentTypes['getTranslationsByDomain'][0])
     {
@@ -2039,11 +2039,11 @@ class TranslationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('SingleTranslation[]' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('SingleTranslation[]' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2061,7 +2061,7 @@ class TranslationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'SingleTranslation[]', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2107,7 +2107,7 @@ class TranslationsApi
                 );
             }
 
-            $returnType = 'SingleTranslation[]';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2140,7 +2140,7 @@ class TranslationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'SingleTranslation[]',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2190,7 +2190,7 @@ class TranslationsApi
      */
     public function getTranslationsByDomainAsyncWithHttpInfo($domain, $locale = null, string $contentType = self::contentTypes['getTranslationsByDomain'][0])
     {
-        $returnType = 'SingleTranslation[]';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation';
         $request = $this->getTranslationsByDomainRequest($domain, $locale, $contentType);
 
         return $this->client

@@ -16,7 +16,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createTranslation()`
 
 ```php
-createTranslation($domain, $postTranslation, $force): SingleTranslation[]
+createTranslation($domain, $postTranslations, $force): \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation
 ```
 
 
@@ -43,11 +43,11 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$postTranslation = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslation()); // PostTranslation[] | The posted translations
+$postTranslations = new \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations(); // \NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations | The posted translations
 $force = 'force_example'; // string | Force=true will overwrite existing translations, otherwise will be skipped
 
 try {
-    $result = $apiInstance->createTranslation($domain, $postTranslation, $force);
+    $result = $apiInstance->createTranslation($domain, $postTranslations, $force);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->createTranslation: ', $e->getMessage(), PHP_EOL;
@@ -59,12 +59,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **postTranslation** | [**PostTranslation[]**](../Model/PostTranslation.md)| The posted translations | |
+| **postTranslations** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostTranslations**](../Model/PostTranslations.md)| The posted translations | |
 | **force** | **string**| Force&#x3D;true will overwrite existing translations, otherwise will be skipped | [optional] |
 
 ### Return type
 
-[**SingleTranslation[]**](../Model/SingleTranslation.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation**](../Model/ListTranslation.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ try {
 ## `deprecateTranslation()`
 
 ```php
-deprecateTranslation($domain, $deprecateKeyword)
+deprecateTranslation($domain, $keywordCollection)
 ```
 
 
@@ -109,10 +109,10 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$deprecateKeyword = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
+$keywordCollection = new \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection(); // \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection | The posted translations
 
 try {
-    $apiInstance->deprecateTranslation($domain, $deprecateKeyword);
+    $apiInstance->deprecateTranslation($domain, $keywordCollection);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->deprecateTranslation: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,7 +123,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **deprecateKeyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
+| **keywordCollection** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection**](../Model/KeywordCollection.md)| The posted translations | |
 
 ### Return type
 
@@ -208,7 +208,7 @@ void (empty response body)
 ## `enableTranslation()`
 
 ```php
-enableTranslation($domain, $deprecateKeyword)
+enableTranslation($domain, $keywordCollection)
 ```
 
 
@@ -235,10 +235,10 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\TranslationsApi(
     $config
 );
 $domain = 'domain_example'; // string | the domain of the languages you want
-$deprecateKeyword = array(new \NFQ\KunstmaanRestApi\PhpClient\Model\DeprecateKeyword()); // DeprecateKeyword[] | The posted translations
+$keywordCollection = new \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection(); // \NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection | The posted translations
 
 try {
-    $apiInstance->enableTranslation($domain, $deprecateKeyword);
+    $apiInstance->enableTranslation($domain, $keywordCollection);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->enableTranslation: ', $e->getMessage(), PHP_EOL;
 }
@@ -249,7 +249,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| the domain of the languages you want | |
-| **deprecateKeyword** | [**DeprecateKeyword[]**](../Model/DeprecateKeyword.md)| The posted translations | |
+| **keywordCollection** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\KeywordCollection**](../Model/KeywordCollection.md)| The posted translations | |
 
 ### Return type
 
@@ -337,7 +337,7 @@ try {
 ## `getTranslations()`
 
 ```php
-getTranslations($locale): SingleTranslation[]
+getTranslations($locale): \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation
 ```
 
 
@@ -381,7 +381,7 @@ try {
 
 ### Return type
 
-[**SingleTranslation[]**](../Model/SingleTranslation.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation**](../Model/ListTranslation.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ try {
 ## `getTranslationsByDomain()`
 
 ```php
-getTranslationsByDomain($domain, $locale): SingleTranslation[]
+getTranslationsByDomain($domain, $locale): \NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation
 ```
 
 
@@ -445,7 +445,7 @@ try {
 
 ### Return type
 
-[**SingleTranslation[]**](../Model/SingleTranslation.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\ListTranslation**](../Model/ListTranslation.md)
 
 ### Authorization
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * ApiPageTemplate
+ * NodeList
  *
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,21 +26,21 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace NFQ\KunstmaanRestApi\PhpClient\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * ApiPageTemplate Class Doc Comment
+ * NodeList Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  NFQ\KunstmaanRestApi\PhpClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class NodeList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ApiPageTemplate';
+    protected static $openAPIModelName = 'NodeList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'contexts' => 'ApiContext[]'
+        
     ];
 
     /**
@@ -69,8 +68,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'contexts' => null
+        
     ];
 
     /**
@@ -79,8 +77,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'contexts' => false
+        
     ];
 
     /**
@@ -169,8 +166,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'contexts' => 'contexts'
+        
     ];
 
     /**
@@ -179,8 +175,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'contexts' => 'setContexts'
+        
     ];
 
     /**
@@ -189,8 +184,7 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'contexts' => 'getContexts'
+        
     ];
 
     /**
@@ -250,8 +244,6 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('contexts', $data ?? [], null);
     }
 
     /**
@@ -295,60 +287,6 @@ class ApiPageTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets contexts
-     *
-     * @return ApiContext[]|null
-     */
-    public function getContexts()
-    {
-        return $this->container['contexts'];
-    }
-
-    /**
-     * Sets contexts
-     *
-     * @param ApiContext[]|null $contexts contexts
-     *
-     * @return self
-     */
-    public function setContexts($contexts)
-    {
-        if (is_null($contexts)) {
-            throw new \InvalidArgumentException('non-nullable contexts cannot be null');
-        }
-        $this->container['contexts'] = $contexts;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
