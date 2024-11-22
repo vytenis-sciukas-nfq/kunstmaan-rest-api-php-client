@@ -1,6 +1,6 @@
 <?php
 /**
- * PaginatedNodeList
+ * PaginatedResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * PaginatedNodeList Class Doc Comment
+ * PaginatedResponse Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PaginatedNodeList implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PaginatedNodeList implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaginatedNodeList';
+    protected static $openAPIModelName = 'PaginatedResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class PaginatedNodeList implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'links' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks',
-        'embedded' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListAllOfEmbedded',
+        'embedded' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseEmbedded',
         'page' => 'int',
         'totalPages' => 'int',
         'totalItems' => 'int'
@@ -347,7 +347,7 @@ class PaginatedNodeList implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets embedded
      *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListAllOfEmbedded|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseEmbedded|null
      */
     public function getEmbedded()
     {
@@ -357,7 +357,7 @@ class PaginatedNodeList implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets embedded
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListAllOfEmbedded|null $embedded embedded
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseEmbedded|null $embedded embedded
      *
      * @return self
      */

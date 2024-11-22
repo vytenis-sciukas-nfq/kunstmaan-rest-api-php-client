@@ -1,11 +1,11 @@
-# # PaginatedNodeList
+# # PaginatedResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseLinks**](PaginatedResponseLinks.md) |  | [optional]
-**embedded** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeListAllOfEmbedded**](PaginatedNodeListAllOfEmbedded.md) |  | [optional]
+**embedded** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedResponseEmbedded**](PaginatedResponseEmbedded.md) |  | [optional]
 **page** | **int** |  | [optional]
 **totalPages** | **int** |  | [optional]
 **totalItems** | **int** |  | [optional]
