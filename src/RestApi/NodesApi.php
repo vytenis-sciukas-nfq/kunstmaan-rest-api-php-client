@@ -978,16 +978,15 @@ class NodesApi
      * Retrieve a nested nodes
      *
      * @param  string $id The node ID, if 0 will return all nodes (required)
-     * @param  string $locale The translation locale to retrieve titles based upon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function getNodeNested($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    public function getNodeNested($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
-        list($response) = $this->getNodeNestedWithHttpInfo($id, $locale, $contentType);
+        list($response) = $this->getNodeNestedWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -997,16 +996,15 @@ class NodesApi
      * Retrieve a nested nodes
      *
      * @param  string $id The node ID, if 0 will return all nodes (required)
-     * @param  string $locale The translation locale to retrieve titles based upon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNodeNestedWithHttpInfo($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    public function getNodeNestedWithHttpInfo($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
-        $request = $this->getNodeNestedRequest($id, $locale, $contentType);
+        $request = $this->getNodeNestedRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1193,15 +1191,14 @@ class NodesApi
      * Retrieve a nested nodes
      *
      * @param  string $id The node ID, if 0 will return all nodes (required)
-     * @param  string $locale The translation locale to retrieve titles based upon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodeNestedAsync($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    public function getNodeNestedAsync($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
-        return $this->getNodeNestedAsyncWithHttpInfo($id, $locale, $contentType)
+        return $this->getNodeNestedAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1215,16 +1212,15 @@ class NodesApi
      * Retrieve a nested nodes
      *
      * @param  string $id The node ID, if 0 will return all nodes (required)
-     * @param  string $locale The translation locale to retrieve titles based upon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodeNestedAsyncWithHttpInfo($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    public function getNodeNestedAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
         $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList';
-        $request = $this->getNodeNestedRequest($id, $locale, $contentType);
+        $request = $this->getNodeNestedRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1266,13 +1262,12 @@ class NodesApi
      * Create request for operation 'getNodeNested'
      *
      * @param  string $id The node ID, if 0 will return all nodes (required)
-     * @param  string $locale The translation locale to retrieve titles based upon (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNodeNestedRequest($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    public function getNodeNestedRequest($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1282,15 +1277,8 @@ class NodesApi
             );
         }
 
-        // verify the required parameter 'locale' is set
-        if ($locale === null || (is_array($locale) && count($locale) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $locale when calling getNodeNested'
-            );
-        }
 
-
-        $resourcePath = '/api/nodes/{id}/nested/{locale}';
+        $resourcePath = '/api/nodes/{id}/nested';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1304,14 +1292,6 @@ class NodesApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($locale !== null) {
-            $resourcePath = str_replace(
-                '{' . 'locale' . '}',
-                ObjectSerializer::toPathValue($locale),
                 $resourcePath
             );
         }

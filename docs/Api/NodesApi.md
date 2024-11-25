@@ -6,7 +6,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | ------------- | ------------- | ------------- |
 | [**getNode()**](NodesApi.md#getNode) | **GET** /api/nodes/{id} | Retrieve a single node |
 | [**getNodeChildren()**](NodesApi.md#getNodeChildren) | **GET** /api/nodes/{id}/children | Retrieve a single node&#39;s children |
-| [**getNodeNested()**](NodesApi.md#getNodeNested) | **GET** /api/nodes/{id}/nested/{locale} | Retrieve a nested nodes |
+| [**getNodeNested()**](NodesApi.md#getNodeNested) | **GET** /api/nodes/{id}/nested | Retrieve a nested nodes |
 | [**getNodeParent()**](NodesApi.md#getNodeParent) | **GET** /api/nodes/{id}/parent | Retrieve a single node&#39;s parent |
 | [**getNodes()**](NodesApi.md#getNodes) | **GET** /api/nodes | Retrieve nodes paginated |
 
@@ -144,7 +144,7 @@ try {
 ## `getNodeNested()`
 
 ```php
-getNodeNested($id, $locale): \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList
+getNodeNested($id): \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList
 ```
 
 Retrieve a nested nodes
@@ -171,10 +171,9 @@ $apiInstance = new NFQ\KunstmaanRestApi\PhpClient\Api\NodesApi(
     $config
 );
 $id = 'id_example'; // string | The node ID, if 0 will return all nodes
-$locale = 'locale_example'; // string | The translation locale to retrieve titles based upon
 
 try {
-    $result = $apiInstance->getNodeNested($id, $locale);
+    $result = $apiInstance->getNodeNested($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NodesApi->getNodeNested: ', $e->getMessage(), PHP_EOL;
@@ -186,7 +185,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| The node ID, if 0 will return all nodes | |
-| **locale** | **string**| The translation locale to retrieve titles based upon | |
 
 ### Return type
 
