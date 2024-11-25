@@ -57,7 +57,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'nodeTranslations' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]'
+        'nodeTranslations' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]',
+        'children' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'nodeTranslations' => null
+        'nodeTranslations' => null,
+        'children' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'nodeTranslations' => false
+        'nodeTranslations' => false,
+        'children' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'nodeTranslations' => 'node_translations'
+        'nodeTranslations' => 'node_translations',
+        'children' => 'children'
     ];
 
     /**
@@ -175,7 +179,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'nodeTranslations' => 'setNodeTranslations'
+        'nodeTranslations' => 'setNodeTranslations',
+        'children' => 'setChildren'
     ];
 
     /**
@@ -184,7 +189,8 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'nodeTranslations' => 'getNodeTranslations'
+        'nodeTranslations' => 'getNodeTranslations',
+        'children' => 'getChildren'
     ];
 
     /**
@@ -245,6 +251,7 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('nodeTranslations', $data ?? [], null);
+        $this->setIfExists('children', $data ?? [], null);
     }
 
     /**
@@ -312,6 +319,33 @@ class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable nodeTranslations cannot be null');
         }
         $this->container['nodeTranslations'] = $nodeTranslations;
+
+        return $this;
+    }
+
+    /**
+     * Gets children
+     *
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null
+     */
+    public function getChildren()
+    {
+        return $this->container['children'];
+    }
+
+    /**
+     * Sets children
+     *
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode[]|null $children children
+     *
+     * @return self
+     */
+    public function setChildren($children)
+    {
+        if (is_null($children)) {
+            throw new \InvalidArgumentException('non-nullable children cannot be null');
+        }
+        $this->container['children'] = $children;
 
         return $this;
     }

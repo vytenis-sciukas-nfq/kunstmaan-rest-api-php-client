@@ -87,4 +87,13 @@ class GetNodeAllOfEmbeddedTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "children"
+     */
+    public function testPropertyChildren()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
