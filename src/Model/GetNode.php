@@ -66,7 +66,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => 'int',
         'rgt' => 'int',
         'lvl' => 'int',
-        'parent' => 'object'
+        'parent' => 'object',
+        'nodeTranslations' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]'
     ];
 
     /**
@@ -86,7 +87,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => null,
         'rgt' => null,
         'lvl' => null,
-        'parent' => null
+        'parent' => null,
+        'nodeTranslations' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => false,
         'rgt' => false,
         'lvl' => false,
-        'parent' => false
+        'parent' => false,
+        'nodeTranslations' => false
     ];
 
     /**
@@ -202,7 +205,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => 'lft',
         'rgt' => 'rgt',
         'lvl' => 'lvl',
-        'parent' => 'parent'
+        'parent' => 'parent',
+        'nodeTranslations' => 'node_translations'
     ];
 
     /**
@@ -220,7 +224,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => 'setLft',
         'rgt' => 'setRgt',
         'lvl' => 'setLvl',
-        'parent' => 'setParent'
+        'parent' => 'setParent',
+        'nodeTranslations' => 'setNodeTranslations'
     ];
 
     /**
@@ -238,7 +243,8 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'lft' => 'getLft',
         'rgt' => 'getRgt',
         'lvl' => 'getLvl',
-        'parent' => 'getParent'
+        'parent' => 'getParent',
+        'nodeTranslations' => 'getNodeTranslations'
     ];
 
     /**
@@ -308,6 +314,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rgt', $data ?? [], null);
         $this->setIfExists('lvl', $data ?? [], null);
         $this->setIfExists('parent', $data ?? [], null);
+        $this->setIfExists('nodeTranslations', $data ?? [], null);
     }
 
     /**
@@ -618,6 +625,33 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable parent cannot be null');
         }
         $this->container['parent'] = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Gets nodeTranslations
+     *
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]|null
+     */
+    public function getNodeTranslations()
+    {
+        return $this->container['nodeTranslations'];
+    }
+
+    /**
+     * Sets nodeTranslations
+     *
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]|null $nodeTranslations nodeTranslations
+     *
+     * @return self
+     */
+    public function setNodeTranslations($nodeTranslations)
+    {
+        if (is_null($nodeTranslations)) {
+            throw new \InvalidArgumentException('non-nullable nodeTranslations cannot be null');
+        }
+        $this->container['nodeTranslations'] = $nodeTranslations;
 
         return $this;
     }
