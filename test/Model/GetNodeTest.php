@@ -170,9 +170,9 @@ class GetNodeTest extends TestCase
     }
 
     /**
-     * Test attribute "nodeTranslations"
+     * Test attribute "embedded"
      */
-    public function testPropertyNodeTranslations()
+    public function testPropertyEmbedded()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

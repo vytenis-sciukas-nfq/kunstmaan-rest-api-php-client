@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 - [FormSubmission](docs/Model/FormSubmission.md)
 - [GetApiPage](docs/Model/GetApiPage.md)
 - [GetNode](docs/Model/GetNode.md)
+- [GetNodeAllOfEmbedded](docs/Model/GetNodeAllOfEmbedded.md)
 - [GetNodeTranslation](docs/Model/GetNodeTranslation.md)
 - [KeywordCollection](docs/Model/KeywordCollection.md)
 - [ListAuthor](docs/Model/ListAuthor.md)

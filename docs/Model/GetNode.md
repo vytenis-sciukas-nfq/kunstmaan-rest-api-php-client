@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **rgt** | **int** |  | [optional]
 **lvl** | **int** |  | [optional]
 **parent** | **object** |  | [optional]
-**nodeTranslations** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]**](GetNodeTranslation.md) |  | [optional]
+**embedded** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeAllOfEmbedded**](GetNodeAllOfEmbedded.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

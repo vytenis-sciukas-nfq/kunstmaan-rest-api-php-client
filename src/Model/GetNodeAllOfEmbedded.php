@@ -1,6 +1,6 @@
 <?php
 /**
- * GetNode
+ * GetNodeAllOfEmbedded
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
 
 /**
- * GetNode Class Doc Comment
+ * GetNodeAllOfEmbedded Class Doc Comment
  *
  * @category Class
  * @package  NFQ\KunstmaanRestApi\PhpClient
@@ -40,7 +40,7 @@ use \NFQ\KunstmaanRestApi\PhpClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetNodeAllOfEmbedded implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetNode';
+    protected static $openAPIModelName = 'GetNode_allOf__embedded';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,17 +57,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'hiddenFromNav' => 'bool',
-        'refEntityName' => 'string',
-        'internalName' => 'string',
-        'slug' => 'string',
-        'url' => 'string',
-        'lft' => 'int',
-        'rgt' => 'int',
-        'lvl' => 'int',
-        'parent' => 'object',
-        'embedded' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeAllOfEmbedded'
+        'nodeTranslations' => '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]'
     ];
 
     /**
@@ -78,17 +68,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'hiddenFromNav' => null,
-        'refEntityName' => null,
-        'internalName' => null,
-        'slug' => null,
-        'url' => null,
-        'lft' => null,
-        'rgt' => null,
-        'lvl' => null,
-        'parent' => null,
-        'embedded' => null
+        'nodeTranslations' => null
     ];
 
     /**
@@ -97,17 +77,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'hiddenFromNav' => false,
-        'refEntityName' => false,
-        'internalName' => false,
-        'slug' => false,
-        'url' => false,
-        'lft' => false,
-        'rgt' => false,
-        'lvl' => false,
-        'parent' => false,
-        'embedded' => false
+        'nodeTranslations' => false
     ];
 
     /**
@@ -196,17 +166,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'hiddenFromNav' => 'hidden_from_nav',
-        'refEntityName' => 'ref_entity_name',
-        'internalName' => 'internal_name',
-        'slug' => 'slug',
-        'url' => 'url',
-        'lft' => 'lft',
-        'rgt' => 'rgt',
-        'lvl' => 'lvl',
-        'parent' => 'parent',
-        'embedded' => '_embedded'
+        'nodeTranslations' => 'node_translations'
     ];
 
     /**
@@ -215,17 +175,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'hiddenFromNav' => 'setHiddenFromNav',
-        'refEntityName' => 'setRefEntityName',
-        'internalName' => 'setInternalName',
-        'slug' => 'setSlug',
-        'url' => 'setUrl',
-        'lft' => 'setLft',
-        'rgt' => 'setRgt',
-        'lvl' => 'setLvl',
-        'parent' => 'setParent',
-        'embedded' => 'setEmbedded'
+        'nodeTranslations' => 'setNodeTranslations'
     ];
 
     /**
@@ -234,17 +184,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'hiddenFromNav' => 'getHiddenFromNav',
-        'refEntityName' => 'getRefEntityName',
-        'internalName' => 'getInternalName',
-        'slug' => 'getSlug',
-        'url' => 'getUrl',
-        'lft' => 'getLft',
-        'rgt' => 'getRgt',
-        'lvl' => 'getLvl',
-        'parent' => 'getParent',
-        'embedded' => 'getEmbedded'
+        'nodeTranslations' => 'getNodeTranslations'
     ];
 
     /**
@@ -304,17 +244,7 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('hiddenFromNav', $data ?? [], null);
-        $this->setIfExists('refEntityName', $data ?? [], null);
-        $this->setIfExists('internalName', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('lft', $data ?? [], null);
-        $this->setIfExists('rgt', $data ?? [], null);
-        $this->setIfExists('lvl', $data ?? [], null);
-        $this->setIfExists('parent', $data ?? [], null);
-        $this->setIfExists('embedded', $data ?? [], null);
+        $this->setIfExists('nodeTranslations', $data ?? [], null);
     }
 
     /**
@@ -360,298 +290,28 @@ class GetNode implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets nodeTranslations
      *
-     * @return int|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]|null
      */
-    public function getId()
+    public function getNodeTranslations()
     {
-        return $this->container['id'];
+        return $this->container['nodeTranslations'];
     }
 
     /**
-     * Sets id
+     * Sets nodeTranslations
      *
-     * @param int|null $id id
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeTranslation[]|null $nodeTranslations nodeTranslations
      *
      * @return self
      */
-    public function setId($id)
+    public function setNodeTranslations($nodeTranslations)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($nodeTranslations)) {
+            throw new \InvalidArgumentException('non-nullable nodeTranslations cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets hiddenFromNav
-     *
-     * @return bool|null
-     */
-    public function getHiddenFromNav()
-    {
-        return $this->container['hiddenFromNav'];
-    }
-
-    /**
-     * Sets hiddenFromNav
-     *
-     * @param bool|null $hiddenFromNav hiddenFromNav
-     *
-     * @return self
-     */
-    public function setHiddenFromNav($hiddenFromNav)
-    {
-        if (is_null($hiddenFromNav)) {
-            throw new \InvalidArgumentException('non-nullable hiddenFromNav cannot be null');
-        }
-        $this->container['hiddenFromNav'] = $hiddenFromNav;
-
-        return $this;
-    }
-
-    /**
-     * Gets refEntityName
-     *
-     * @return string|null
-     */
-    public function getRefEntityName()
-    {
-        return $this->container['refEntityName'];
-    }
-
-    /**
-     * Sets refEntityName
-     *
-     * @param string|null $refEntityName refEntityName
-     *
-     * @return self
-     */
-    public function setRefEntityName($refEntityName)
-    {
-        if (is_null($refEntityName)) {
-            throw new \InvalidArgumentException('non-nullable refEntityName cannot be null');
-        }
-        $this->container['refEntityName'] = $refEntityName;
-
-        return $this;
-    }
-
-    /**
-     * Gets internalName
-     *
-     * @return string|null
-     */
-    public function getInternalName()
-    {
-        return $this->container['internalName'];
-    }
-
-    /**
-     * Sets internalName
-     *
-     * @param string|null $internalName internalName
-     *
-     * @return self
-     */
-    public function setInternalName($internalName)
-    {
-        if (is_null($internalName)) {
-            throw new \InvalidArgumentException('non-nullable internalName cannot be null');
-        }
-        $this->container['internalName'] = $internalName;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
-        }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets lft
-     *
-     * @return int|null
-     */
-    public function getLft()
-    {
-        return $this->container['lft'];
-    }
-
-    /**
-     * Sets lft
-     *
-     * @param int|null $lft lft
-     *
-     * @return self
-     */
-    public function setLft($lft)
-    {
-        if (is_null($lft)) {
-            throw new \InvalidArgumentException('non-nullable lft cannot be null');
-        }
-        $this->container['lft'] = $lft;
-
-        return $this;
-    }
-
-    /**
-     * Gets rgt
-     *
-     * @return int|null
-     */
-    public function getRgt()
-    {
-        return $this->container['rgt'];
-    }
-
-    /**
-     * Sets rgt
-     *
-     * @param int|null $rgt rgt
-     *
-     * @return self
-     */
-    public function setRgt($rgt)
-    {
-        if (is_null($rgt)) {
-            throw new \InvalidArgumentException('non-nullable rgt cannot be null');
-        }
-        $this->container['rgt'] = $rgt;
-
-        return $this;
-    }
-
-    /**
-     * Gets lvl
-     *
-     * @return int|null
-     */
-    public function getLvl()
-    {
-        return $this->container['lvl'];
-    }
-
-    /**
-     * Sets lvl
-     *
-     * @param int|null $lvl lvl
-     *
-     * @return self
-     */
-    public function setLvl($lvl)
-    {
-        if (is_null($lvl)) {
-            throw new \InvalidArgumentException('non-nullable lvl cannot be null');
-        }
-        $this->container['lvl'] = $lvl;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent
-     *
-     * @return object|null
-     */
-    public function getParent()
-    {
-        return $this->container['parent'];
-    }
-
-    /**
-     * Sets parent
-     *
-     * @param object|null $parent parent
-     *
-     * @return self
-     */
-    public function setParent($parent)
-    {
-        if (is_null($parent)) {
-            throw new \InvalidArgumentException('non-nullable parent cannot be null');
-        }
-        $this->container['parent'] = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Gets embedded
-     *
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeAllOfEmbedded|null
-     */
-    public function getEmbedded()
-    {
-        return $this->container['embedded'];
-    }
-
-    /**
-     * Sets embedded
-     *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\GetNodeAllOfEmbedded|null $embedded embedded
-     *
-     * @return self
-     */
-    public function setEmbedded($embedded)
-    {
-        if (is_null($embedded)) {
-            throw new \InvalidArgumentException('non-nullable embedded cannot be null');
-        }
-        $this->container['embedded'] = $embedded;
+        $this->container['nodeTranslations'] = $nodeTranslations;
 
         return $this;
     }

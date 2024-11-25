@@ -25,6 +25,7 @@ docs/Model/Folder.md
 docs/Model/FormSubmission.md
 docs/Model/GetApiPage.md
 docs/Model/GetNode.md
+docs/Model/GetNodeAllOfEmbedded.md
 docs/Model/GetNodeTranslation.md
 docs/Model/KeywordCollection.md
 docs/Model/ListAuthor.md
@@ -87,6 +88,7 @@ src/Model/Folder.php
 src/Model/FormSubmission.php
 src/Model/GetApiPage.php
 src/Model/GetNode.php
+src/Model/GetNodeAllOfEmbedded.php
 src/Model/GetNodeTranslation.php
 src/Model/KeywordCollection.php
 src/Model/ListAuthor.php
@@ -163,6 +165,7 @@ test/Model/ErrorModelTest.php
 test/Model/FolderTest.php
 test/Model/FormSubmissionTest.php
 test/Model/GetApiPageTest.php
+test/Model/GetNodeAllOfEmbeddedTest.php
 test/Model/GetNodeTest.php
 test/Model/GetNodeTranslationTest.php
 test/Model/KeywordCollectionTest.php
