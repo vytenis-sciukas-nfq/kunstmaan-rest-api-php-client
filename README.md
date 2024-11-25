@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *MenuApi* | [**putMenuItem**](docs/Api/MenuApi.md#putmenuitem) | **PUT** /api/menu-item/{id} | Update a menuItem
 *NodesApi* | [**getNode**](docs/Api/NodesApi.md#getnode) | **GET** /api/nodes/{id} | Retrieve a single node
 *NodesApi* | [**getNodeChildren**](docs/Api/NodesApi.md#getnodechildren) | **GET** /api/nodes/{id}/children | Retrieve a single node&#39;s children
+*NodesApi* | [**getNodeNested**](docs/Api/NodesApi.md#getnodenested) | **GET** /api/nodes/{id}/nested/{locale} | Retrieve a nested nodes
 *NodesApi* | [**getNodeParent**](docs/Api/NodesApi.md#getnodeparent) | **GET** /api/nodes/{id}/parent | Retrieve a single node&#39;s parent
 *NodesApi* | [**getNodes**](docs/Api/NodesApi.md#getnodes) | **GET** /api/nodes | Retrieve nodes paginated
 *PagesApi* | [**getPage**](docs/Api/PagesApi.md#getpage) | **GET** /api/public/pages/{id} | Get a page by node translation ID
@@ -142,6 +143,9 @@ Class | Method | HTTP request | Description
 - [Media](docs/Model/Media.md)
 - [Menu](docs/Model/Menu.md)
 - [MenuItem](docs/Model/MenuItem.md)
+- [NestedNode](docs/Model/NestedNode.md)
+- [NestedNodeList](docs/Model/NestedNodeList.md)
+- [NestedNodeTranslation](docs/Model/NestedNodeTranslation.md)
 - [Node](docs/Model/Node.md)
 - [NodeTranslation](docs/Model/NodeTranslation.md)
 - [NodeVersion](docs/Model/NodeVersion.md)

@@ -77,6 +77,9 @@ class NodesApi
         'getNodeChildren' => [
             'application/json',
         ],
+        'getNodeNested' => [
+            'application/json',
+        ],
         'getNodeParent' => [
             'application/json',
         ],
@@ -520,6 +523,7 @@ class NodesApi
      * Retrieve a single node&#39;s children
      *
      * @param  string $id The node ID (required)
+     * @param  string $includeChildren Do you want to include node children? (required)
      * @param  string $page The current page (required)
      * @param  string $limit Amount of results (default 20) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeChildren'] to see the possible values for this operation
@@ -528,9 +532,9 @@ class NodesApi
      * @throws \InvalidArgumentException
      * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function getNodeChildren($id, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
+    public function getNodeChildren($id, $includeChildren, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
     {
-        list($response) = $this->getNodeChildrenWithHttpInfo($id, $page, $limit, $contentType);
+        list($response) = $this->getNodeChildrenWithHttpInfo($id, $includeChildren, $page, $limit, $contentType);
         return $response;
     }
 
@@ -540,6 +544,7 @@ class NodesApi
      * Retrieve a single node&#39;s children
      *
      * @param  string $id The node ID (required)
+     * @param  string $includeChildren Do you want to include node children? (required)
      * @param  string $page The current page (required)
      * @param  string $limit Amount of results (default 20) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeChildren'] to see the possible values for this operation
@@ -548,9 +553,9 @@ class NodesApi
      * @throws \InvalidArgumentException
      * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNodeChildrenWithHttpInfo($id, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
+    public function getNodeChildrenWithHttpInfo($id, $includeChildren, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
     {
-        $request = $this->getNodeChildrenRequest($id, $page, $limit, $contentType);
+        $request = $this->getNodeChildrenRequest($id, $includeChildren, $page, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -737,6 +742,7 @@ class NodesApi
      * Retrieve a single node&#39;s children
      *
      * @param  string $id The node ID (required)
+     * @param  string $includeChildren Do you want to include node children? (required)
      * @param  string $page The current page (required)
      * @param  string $limit Amount of results (default 20) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeChildren'] to see the possible values for this operation
@@ -744,9 +750,9 @@ class NodesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodeChildrenAsync($id, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
+    public function getNodeChildrenAsync($id, $includeChildren, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
     {
-        return $this->getNodeChildrenAsyncWithHttpInfo($id, $page, $limit, $contentType)
+        return $this->getNodeChildrenAsyncWithHttpInfo($id, $includeChildren, $page, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -760,6 +766,7 @@ class NodesApi
      * Retrieve a single node&#39;s children
      *
      * @param  string $id The node ID (required)
+     * @param  string $includeChildren Do you want to include node children? (required)
      * @param  string $page The current page (required)
      * @param  string $limit Amount of results (default 20) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeChildren'] to see the possible values for this operation
@@ -767,10 +774,10 @@ class NodesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodeChildrenAsyncWithHttpInfo($id, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
+    public function getNodeChildrenAsyncWithHttpInfo($id, $includeChildren, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
     {
         $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList';
-        $request = $this->getNodeChildrenRequest($id, $page, $limit, $contentType);
+        $request = $this->getNodeChildrenRequest($id, $includeChildren, $page, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -812,6 +819,7 @@ class NodesApi
      * Create request for operation 'getNodeChildren'
      *
      * @param  string $id The node ID (required)
+     * @param  string $includeChildren Do you want to include node children? (required)
      * @param  string $page The current page (required)
      * @param  string $limit Amount of results (default 20) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeChildren'] to see the possible values for this operation
@@ -819,7 +827,7 @@ class NodesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNodeChildrenRequest($id, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
+    public function getNodeChildrenRequest($id, $includeChildren, $page, $limit, string $contentType = self::contentTypes['getNodeChildren'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -829,6 +837,16 @@ class NodesApi
             );
         }
 
+        // verify the required parameter 'includeChildren' is set
+        if ($includeChildren === null || (is_array($includeChildren) && count($includeChildren) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $includeChildren when calling getNodeChildren'
+            );
+        }
+        if (!preg_match("/(true|false)/", $includeChildren)) {
+            throw new \InvalidArgumentException("invalid value for \"includeChildren\" when calling NodesApi.getNodeChildren, must conform to the pattern /(true|false)/.");
+        }
+        
         // verify the required parameter 'page' is set
         if ($page === null || (is_array($page) && count($page) === 0)) {
             throw new \InvalidArgumentException(
@@ -859,6 +877,15 @@ class NodesApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $includeChildren,
+            'includeChildren', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page,
             'page', // param base name
             'string', // openApiType
@@ -882,6 +909,409 @@ class NodesApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getNodeNested
+     *
+     * Retrieve a nested nodes
+     *
+     * @param  string $id The node ID, if 0 will return all nodes (required)
+     * @param  string $locale The translation locale to retrieve titles based upon (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
+     *
+     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     */
+    public function getNodeNested($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    {
+        list($response) = $this->getNodeNestedWithHttpInfo($id, $locale, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getNodeNestedWithHttpInfo
+     *
+     * Retrieve a nested nodes
+     *
+     * @param  string $id The node ID, if 0 will return all nodes (required)
+     * @param  string $locale The translation locale to retrieve titles based upon (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
+     *
+     * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getNodeNestedWithHttpInfo($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    {
+        $request = $this->getNodeNestedRequest($id, $locale, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getNodeNestedAsync
+     *
+     * Retrieve a nested nodes
+     *
+     * @param  string $id The node ID, if 0 will return all nodes (required)
+     * @param  string $locale The translation locale to retrieve titles based upon (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getNodeNestedAsync($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    {
+        return $this->getNodeNestedAsyncWithHttpInfo($id, $locale, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getNodeNestedAsyncWithHttpInfo
+     *
+     * Retrieve a nested nodes
+     *
+     * @param  string $id The node ID, if 0 will return all nodes (required)
+     * @param  string $locale The translation locale to retrieve titles based upon (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getNodeNestedAsyncWithHttpInfo($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    {
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList';
+        $request = $this->getNodeNestedRequest($id, $locale, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getNodeNested'
+     *
+     * @param  string $id The node ID, if 0 will return all nodes (required)
+     * @param  string $locale The translation locale to retrieve titles based upon (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodeNested'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getNodeNestedRequest($id, $locale, string $contentType = self::contentTypes['getNodeNested'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getNodeNested'
+            );
+        }
+
+        // verify the required parameter 'locale' is set
+        if ($locale === null || (is_array($locale) && count($locale) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $locale when calling getNodeNested'
+            );
+        }
+
+
+        $resourcePath = '/api/nodes/{id}/nested/{locale}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($locale !== null) {
+            $resourcePath = str_replace(
+                '{' . 'locale' . '}',
+                ObjectSerializer::toPathValue($locale),
                 $resourcePath
             );
         }
@@ -1339,15 +1769,16 @@ class NodesApi
      * @param  string $locale Locale (optional)
      * @param  string $hiddenFromNav If true, only nodes hidden from nav will be returned (optional)
      * @param  string $refEntityName Which pages you want to have returned (optional)
+     * @param  string $includeChildren Do you want to include node children? (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodes'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
-    public function getNodes($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, string $contentType = self::contentTypes['getNodes'][0])
+    public function getNodes($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, $includeChildren = null, string $contentType = self::contentTypes['getNodes'][0])
     {
-        list($response) = $this->getNodesWithHttpInfo($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $contentType);
+        list($response) = $this->getNodesWithHttpInfo($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $includeChildren, $contentType);
         return $response;
     }
 
@@ -1362,15 +1793,16 @@ class NodesApi
      * @param  string $locale Locale (optional)
      * @param  string $hiddenFromNav If true, only nodes hidden from nav will be returned (optional)
      * @param  string $refEntityName Which pages you want to have returned (optional)
+     * @param  string $includeChildren Do you want to include node children? (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodes'] to see the possible values for this operation
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNodesWithHttpInfo($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, string $contentType = self::contentTypes['getNodes'][0])
+    public function getNodesWithHttpInfo($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, $includeChildren = null, string $contentType = self::contentTypes['getNodes'][0])
     {
-        $request = $this->getNodesRequest($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $contentType);
+        $request = $this->getNodesRequest($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $includeChildren, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1562,14 +1994,15 @@ class NodesApi
      * @param  string $locale Locale (optional)
      * @param  string $hiddenFromNav If true, only nodes hidden from nav will be returned (optional)
      * @param  string $refEntityName Which pages you want to have returned (optional)
+     * @param  string $includeChildren Do you want to include node children? (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodesAsync($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, string $contentType = self::contentTypes['getNodes'][0])
+    public function getNodesAsync($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, $includeChildren = null, string $contentType = self::contentTypes['getNodes'][0])
     {
-        return $this->getNodesAsyncWithHttpInfo($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $contentType)
+        return $this->getNodesAsyncWithHttpInfo($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $includeChildren, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1588,15 +2021,16 @@ class NodesApi
      * @param  string $locale Locale (optional)
      * @param  string $hiddenFromNav If true, only nodes hidden from nav will be returned (optional)
      * @param  string $refEntityName Which pages you want to have returned (optional)
+     * @param  string $includeChildren Do you want to include node children? (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNodesAsyncWithHttpInfo($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, string $contentType = self::contentTypes['getNodes'][0])
+    public function getNodesAsyncWithHttpInfo($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, $includeChildren = null, string $contentType = self::contentTypes['getNodes'][0])
     {
         $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\PaginatedNodeList';
-        $request = $this->getNodesRequest($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $contentType);
+        $request = $this->getNodesRequest($page, $limit, $internalName, $locale, $hiddenFromNav, $refEntityName, $includeChildren, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1643,12 +2077,13 @@ class NodesApi
      * @param  string $locale Locale (optional)
      * @param  string $hiddenFromNav If true, only nodes hidden from nav will be returned (optional)
      * @param  string $refEntityName Which pages you want to have returned (optional)
+     * @param  string $includeChildren Do you want to include node children? (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNodesRequest($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, string $contentType = self::contentTypes['getNodes'][0])
+    public function getNodesRequest($page = '1', $limit = '20', $internalName = null, $locale = null, $hiddenFromNav = null, $refEntityName = null, $includeChildren = null, string $contentType = self::contentTypes['getNodes'][0])
     {
 
         if ($page !== null && !preg_match("/\\d+/", $page)) {
@@ -1672,6 +2107,10 @@ class NodesApi
         }
         
 
+        if ($includeChildren !== null && !preg_match("/(true|false)/", $includeChildren)) {
+            throw new \InvalidArgumentException("invalid value for \"includeChildren\" when calling NodesApi.getNodes, must conform to the pattern /(true|false)/.");
+        }
+        
 
         $resourcePath = '/api/nodes';
         $formParams = [];
@@ -1729,6 +2168,15 @@ class NodesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $refEntityName,
             'refEntityName', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $includeChildren,
+            'includeChildren', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
