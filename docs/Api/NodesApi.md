@@ -144,7 +144,7 @@ try {
 ## `getNodeNested()`
 
 ```php
-getNodeNested($id): \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList
+getNodeNested($id): \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]
 ```
 
 Retrieve a nested nodes
@@ -188,7 +188,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList**](../Model/NestedNodeList.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]**](../Model/NestedNode.md)
 
 ### Authorization
 

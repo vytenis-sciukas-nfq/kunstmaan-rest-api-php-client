@@ -144,7 +144,6 @@ Class | Method | HTTP request | Description
 - [Menu](docs/Model/Menu.md)
 - [MenuItem](docs/Model/MenuItem.md)
 - [NestedNode](docs/Model/NestedNode.md)
-- [NestedNodeList](docs/Model/NestedNodeList.md)
 - [NestedNodeTranslation](docs/Model/NestedNodeTranslation.md)
 - [Node](docs/Model/Node.md)
 - [NodeTranslation](docs/Model/NodeTranslation.md)

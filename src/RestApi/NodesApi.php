@@ -982,7 +982,7 @@ class NodesApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getNodeNested($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
@@ -1000,7 +1000,7 @@ class NodesApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNodeNestedWithHttpInfo($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
@@ -1031,11 +1031,11 @@ class NodesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1053,7 +1053,7 @@ class NodesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1126,7 +1126,7 @@ class NodesApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1159,7 +1159,7 @@ class NodesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1219,7 +1219,7 @@ class NodesApi
      */
     public function getNodeNestedAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getNodeNested'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNodeList';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\NestedNode[]';
         $request = $this->getNodeNestedRequest($id, $contentType);
 
         return $this->client

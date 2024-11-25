@@ -35,7 +35,6 @@ docs/Model/Media.md
 docs/Model/Menu.md
 docs/Model/MenuItem.md
 docs/Model/NestedNode.md
-docs/Model/NestedNodeList.md
 docs/Model/NestedNodeTranslation.md
 docs/Model/Node.md
 docs/Model/NodeTranslation.md
@@ -102,7 +101,6 @@ src/Model/Menu.php
 src/Model/MenuItem.php
 src/Model/ModelInterface.php
 src/Model/NestedNode.php
-src/Model/NestedNodeList.php
 src/Model/NestedNodeTranslation.php
 src/Model/Node.php
 src/Model/NodeTranslation.php
@@ -181,7 +179,6 @@ test/Model/ListTranslationTest.php
 test/Model/MediaTest.php
 test/Model/MenuItemTest.php
 test/Model/MenuTest.php
-test/Model/NestedNodeListTest.php
 test/Model/NestedNodeTest.php
 test/Model/NestedNodeTranslationTest.php
 test/Model/NodeTest.php
