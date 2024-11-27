@@ -144,7 +144,7 @@ class NodesApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\Node|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel
      */
     public function getNode($id, string $contentType = self::contentTypes['getNode'][0])
     {
@@ -162,7 +162,7 @@ class NodesApi
      *
      * @throws \NFQ\KunstmaanRestApi\PhpClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\Node|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel|\NFQ\KunstmaanRestApi\PhpClient\Model\ErrorModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNodeWithHttpInfo($id, string $contentType = self::contentTypes['getNode'][0])
     {
@@ -193,11 +193,11 @@ class NodesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\Node' === '\SplFileObject') {
+                    if ('\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\Node' !== 'string') {
+                        if ('\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -215,7 +215,7 @@ class NodesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\Node', []),
+                        ObjectSerializer::deserialize($content, '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -288,7 +288,7 @@ class NodesApi
                 );
             }
 
-            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\Node';
+            $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -321,7 +321,7 @@ class NodesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\NFQ\KunstmaanRestApi\PhpClient\Model\Node',
+                        '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -381,7 +381,7 @@ class NodesApi
      */
     public function getNodeAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getNode'][0])
     {
-        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\Node';
+        $returnType = '\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode';
         $request = $this->getNodeRequest($id, $contentType);
 
         return $this->client

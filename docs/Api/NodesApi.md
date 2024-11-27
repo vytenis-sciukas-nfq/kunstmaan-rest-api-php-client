@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getNode()`
 
 ```php
-getNode($id): \NFQ\KunstmaanRestApi\PhpClient\Model\Node
+getNode($id): \NFQ\KunstmaanRestApi\PhpClient\Model\GetNode
 ```
 
 Retrieve a single node
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\NFQ\KunstmaanRestApi\PhpClient\Model\Node**](../Model/Node.md)
+[**\NFQ\KunstmaanRestApi\PhpClient\Model\GetNode**](../Model/GetNode.md)
 
 ### Authorization
 
