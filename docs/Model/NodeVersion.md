@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional]
-**owner** | [**Id**](Id.md) |  | [optional]
+**owner** | **string** |  | [optional]
 **refId** | **int** |  | [optional]
 **refEntityName** | **string** |  | [optional]
 

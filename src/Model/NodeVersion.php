@@ -58,7 +58,7 @@ class NodeVersion implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'owner' => 'Id',
+        'owner' => 'string',
         'refId' => 'int',
         'refEntityName' => 'string'
     ];
@@ -340,7 +340,7 @@ class NodeVersion implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets owner
      *
-     * @return Id|null
+     * @return string|null
      */
     public function getOwner()
     {
@@ -350,7 +350,7 @@ class NodeVersion implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets owner
      *
-     * @param Id|null $owner owner
+     * @param string|null $owner owner
      *
      * @return self
      */
