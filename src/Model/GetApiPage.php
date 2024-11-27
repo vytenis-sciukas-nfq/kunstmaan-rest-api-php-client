@@ -63,7 +63,7 @@ class GetApiPage implements ModelInterface, ArrayAccess, \JsonSerializable
         'seo' => '\NFQ\KunstmaanRestApi\PhpClient\Model\Seo',
         'author' => '\NFQ\KunstmaanRestApi\PhpClient\Model\Author',
         'nodeTranslation' => '\NFQ\KunstmaanRestApi\PhpClient\Model\PostNodeTranslation',
-        'nodeVersion' => 'object'
+        'nodeVersion' => '\NFQ\KunstmaanRestApi\PhpClient\Model\NodeVersion'
     ];
 
     /**
@@ -185,12 +185,12 @@ class GetApiPage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'page' => 'page',
-        'pageTemplate' => 'pageTemplate',
+        'pageTemplate' => 'page_template',
         'node' => 'node',
         'seo' => 'seo',
         'author' => 'author',
-        'nodeTranslation' => 'nodeTranslation',
-        'nodeVersion' => 'nodeVersion'
+        'nodeTranslation' => 'node_translation',
+        'nodeVersion' => 'node_version'
     ];
 
     /**
@@ -496,7 +496,7 @@ class GetApiPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets nodeVersion
      *
-     * @return object|null
+     * @return \NFQ\KunstmaanRestApi\PhpClient\Model\NodeVersion|null
      */
     public function getNodeVersion()
     {
@@ -506,7 +506,7 @@ class GetApiPage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets nodeVersion
      *
-     * @param object|null $nodeVersion nodeVersion
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\NodeVersion|null $nodeVersion nodeVersion
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'pageparts' => '\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]'
+        'pageParts' => '\NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'pageparts' => null
+        'pageParts' => null
     ];
 
     /**
@@ -80,7 +80,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
-        'pageparts' => false
+        'pageParts' => false
     ];
 
     /**
@@ -170,7 +170,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'pageparts' => 'pageparts'
+        'pageParts' => 'page_parts'
     ];
 
     /**
@@ -180,7 +180,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'pageparts' => 'setPageparts'
+        'pageParts' => 'setPageParts'
     ];
 
     /**
@@ -190,7 +190,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'pageparts' => 'getPageparts'
+        'pageParts' => 'getPageParts'
     ];
 
     /**
@@ -251,7 +251,7 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('pageparts', $data ?? [], null);
+        $this->setIfExists('pageParts', $data ?? [], null);
     }
 
     /**
@@ -324,28 +324,28 @@ class ApiContext implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets pageparts
+     * Gets pageParts
      *
      * @return \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]|null
      */
-    public function getPageparts()
+    public function getPageParts()
     {
-        return $this->container['pageparts'];
+        return $this->container['pageParts'];
     }
 
     /**
-     * Sets pageparts
+     * Sets pageParts
      *
-     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]|null $pageparts pageparts
+     * @param \NFQ\KunstmaanRestApi\PhpClient\Model\ApiPagePart[]|null $pageParts pageParts
      *
      * @return self
      */
-    public function setPageparts($pageparts)
+    public function setPageParts($pageParts)
     {
-        if (is_null($pageparts)) {
-            throw new \InvalidArgumentException('non-nullable pageparts cannot be null');
+        if (is_null($pageParts)) {
+            throw new \InvalidArgumentException('non-nullable pageParts cannot be null');
         }
-        $this->container['pageparts'] = $pageparts;
+        $this->container['pageParts'] = $pageParts;
 
         return $this;
     }

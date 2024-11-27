@@ -89,9 +89,9 @@ class ApiContextTest extends TestCase
     }
 
     /**
-     * Test attribute "pageparts"
+     * Test attribute "pageParts"
      */
-    public function testPropertyPageparts()
+    public function testPropertyPageParts()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

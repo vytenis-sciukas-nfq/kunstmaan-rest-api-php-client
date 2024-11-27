@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **seo** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\Seo**](Seo.md) |  | [optional]
 **author** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\Author**](Author.md) |  | [optional]
 **nodeTranslation** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\PostNodeTranslation**](PostNodeTranslation.md) |  | [optional]
-**nodeVersion** | **object** |  | [optional]
+**nodeVersion** | [**\NFQ\KunstmaanRestApi\PhpClient\Model\NodeVersion**](NodeVersion.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

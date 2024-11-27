@@ -182,11 +182,11 @@ class PostApiPage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'page' => 'page',
-        'pageTemplate' => 'pageTemplate',
+        'pageTemplate' => 'page_template',
         'node' => 'node',
         'seo' => 'seo',
         'author' => 'author',
-        'nodeTranslation' => 'nodeTranslation'
+        'nodeTranslation' => 'node_translation'
     ];
 
     /**
